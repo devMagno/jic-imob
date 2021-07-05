@@ -1,0 +1,42 @@
+.cta {
+  height: 262px;
+  position: relative;
+  z-index: 2;
+  margin-top: 40px;
+  @include device(medium) {
+    height: 200px;
+  }
+
+  &__background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    filter: brightness(50%);
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+  }
+  &__text {
+    @include type(39.06, bold);
+    text-align: center;
+    color: white;
+    margin-bottom: 36px;
+    @include device(medium) {
+      font-size: 25px;
+      margin-bottom: 20px;
+    }
+  }
+  &__button {
+    max-width: 230px;
+    margin: 0 auto;
+    @include device(medium) {
+      font-size: em(16);
+      max-width: 170px;
+    }
+  }
+}

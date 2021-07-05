@@ -1,0 +1,33 @@
+@function em($size, $context: 16) {
+  @return $size / $context + em;
+}
+@mixin type($size, $weight: regular, $family: 1) {
+  font-size: em($size);
+  @if $weight == regular {
+    font-weight: 400;
+  } @else if $weight == bold {
+    font-weight: 700;
+  }
+
+  @if $family == 1 {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  } @else if $family == 2 {
+    font-family: 'Bai Jamjuree', Arial, Helvetica, sans-serif;
+  }
+}
+
+@mixin device($screen) {
+  @if $screen == medium {
+    @media only screen and (max-width: 767px) {
+      @content;
+    }
+  } @else if $screen == large {
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      @content;
+    }
+  } @else {
+    @media only screen and (max-width: $screen - 1px) {
+      @content;
+    }
+  }
+}

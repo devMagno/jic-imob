@@ -1,0 +1,115 @@
+.page-content--about {
+  padding-bottom: 0;
+  .info {
+    margin-top: 60px;
+    margin-bottom: 90px;
+    @include device(medium) {
+      margin-bottom: 50px;
+    }
+    .page-title {
+      margin-bottom: 10px;
+    }
+    &__left {
+      max-width: 590px;
+    }
+
+    &__content {
+      margin-bottom: 30px;
+      p {
+        line-height: 1.2;
+        & + p {
+          margin-top: 20px;
+        }
+      }
+    }
+
+    &__right {
+      max-width: 488px;
+      @include device(medium) {
+        max-width: unset;
+      }
+      img {
+        height: 530px;
+        object-fit: cover;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .values {
+    margin-bottom: 43px;
+    @include device(medium) {
+      margin-bottom: 0;
+    }
+    &__item {
+      margin-bottom: 45px;
+    }
+
+    &__icon-container {
+      width: 100px;
+      height: 100px;
+      background-color: $main-color;
+      border-radius: 100%;
+      margin-bottom: 20px;
+    }
+    &__icon {
+      font-size: em(50);
+      color: white;
+    }
+
+    &__title {
+      font-size: em(31.25);
+      margin-bottom: 10px;
+    }
+
+    &__text {
+      max-width: 233px;
+      text-align: center;
+      font-size: em(16);
+      line-height: 1.125;
+    }
+  }
+
+  .staff {
+    margin-top: 40px;
+    @include device(medium) {
+      margin-top: 30px;
+    }
+    &__container {
+      @include device(medium) {
+        max-width: 366.66px;
+        margin-bottom: 20px;
+      }
+    }
+    &__member {
+      background-color: $dark-color;
+    }
+    &__content {
+      padding: 20px 21px 30px;
+      @include device(medium) {
+        padding: 16px;
+      }
+    }
+    &__name {
+      color: white;
+      @include type(25, bold);
+      margin-bottom: 20px;
+      @include device(medium) {
+        font-size: em(20);
+        margin-bottom: 10px;
+      }
+    }
+    &__text {
+      font-size: em(16);
+      color: white;
+      line-height: 1.125;
+    }
+    &__photo {
+      height: 265px;
+      img {
+        object-fit: cover;
+        height: 100%;
+      }
+    }
+  }
+}

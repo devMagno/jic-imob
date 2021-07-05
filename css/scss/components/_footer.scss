@@ -1,0 +1,118 @@
+.footer {
+  background-color: $dark-color;
+  padding: 40px 0 20px 0;
+  position: relative;
+  z-index: 2;
+
+  &__inner {
+    gap: 20px;
+  }
+
+  //* LEFT
+  &__left {
+    padding-bottom: 10px;
+  }
+  &__logo {
+    margin-bottom: 25px;
+  }
+  &__link {
+    padding: 8px 0;
+    color: $light-color;
+    @include type(20);
+    transition: color 0.3s;
+    &:hover,
+    &--active {
+      color: $main-color;
+    }
+  }
+
+  //* MIDDLE
+  &__info {
+    padding: 10px 0;
+    @include type(20);
+    line-height: 1.2;
+    a {
+      color: $light-color;
+      transition: color 0.3s;
+      &:hover {
+        color: $main-color;
+      }
+    }
+    & + .footer__info {
+      margin-top: 10px;
+    }
+  }
+  &__icon {
+    margin-right: 20px;
+    font-size: em(20);
+    color: $main-color;
+    min-width: 25px;
+  }
+
+  //* RIGHT
+  &__right {
+    padding-bottom: 10px;
+  }
+  &__social {
+    margin: 0 15px 15px 15px;
+  }
+  &__socialLink {
+    span {
+      color: $main-color;
+      font-size: em(40);
+      transition: color 0.3s;
+      &:hover {
+        color: $main-darker;
+      }
+    }
+  }
+
+  //* BOTTOM
+  &__copy {
+    @include type(12.8);
+    color: rgba($light-color, 0.2);
+    text-align: right;
+    line-height: 1.4;
+  }
+
+  @include device(medium) {
+    &__inner {
+      flex-direction: column;
+    }
+
+    &__logo {
+      margin-bottom: 10px;
+      img {
+        width: 55px;
+      }
+    }
+    &__link {
+      @include type(18);
+      padding: 10px 0;
+    }
+
+    &__right {
+      width: 100%;
+    }
+    &__icon {
+      margin-right: 10px;
+      min-width: 20px;
+    }
+    &__info {
+      @include type(16);
+    }
+
+    &__socials {
+      padding-top: 20px;
+      justify-content: center;
+    }
+    &__socialLink span {
+      font-size: em(34);
+    }
+
+    &__copy {
+      margin-top: 50px;
+      text-align: center;
+    }
+  }
+}

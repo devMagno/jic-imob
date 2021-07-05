@@ -1,0 +1,43 @@
+.flex.gutter {
+  &.row {
+    margin-left: $gutter * -1;
+    margin-right: $gutter * -1;
+    width: calc(100% + (#{$gutter} * 2));
+  }
+
+  > .col,
+  > [class*='col-'] {
+    padding-left: $gutter;
+    padding-right: $gutter;
+  }
+}
+
+@mixin createColumns($class: '') {
+  $c: '-' + $class;
+
+  @if $class == '' {
+    $c: '-';
+  } @else {
+    $c: '-' + $class + '-';
+  }
+  @for $i from 1 through $grid-columns {
+    &.col#{$c + $i} {
+      width: 100% / $grid-columns * $i;
+      -webkit-box-flex: 1;
+      -ms-flex: 1 0 percentage($i / $grid-columns);
+      flex: 1 0 percentage($i / $grid-columns);
+    }
+  }
+}
+
+@include createColumns();
+
+@include device(medium) {
+  @include createColumns(sm);
+}
+@include device(large) {
+  @include createColumns(lg);
+}
+@media only screen and (max-width: 800px) {
+  @include createColumns((md));
+}

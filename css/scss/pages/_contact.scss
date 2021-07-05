@@ -1,0 +1,95 @@
+.page-content--contact {
+  .innerTitle__title {
+    margin-bottom: 48px;
+    @include device(medium) {
+      margin-bottom: 30px;
+    }
+  }
+
+  .content-container {
+    @include device(medium) {
+      .form-section,
+      .contacts-section {
+        max-width: unset;
+      }
+      .form-section {
+        margin-bottom: 70px;
+      }
+    }
+  }
+
+  .form-section,
+  .contacts-section {
+    max-width: 488px;
+  }
+
+  .contacts {
+    &__label {
+      font-size: em(20);
+    }
+    &__map {
+      margin: 10px 0 20px;
+    }
+
+    &__list {
+      margin: 5px 0 20px;
+    }
+    &__link {
+      padding: 10px 0;
+      &:hover .contacts__link-text {
+        color: $main-color;
+      }
+      &-text {
+        font-size: em(18);
+        transition: color 0.3s;
+      }
+    }
+    &__icon {
+      color: $main-color;
+      font-size: em(24);
+      min-width: 30px;
+      margin-right: 7px;
+    }
+
+    &__social {
+      margin-top: 10px;
+      margin-left: -10px;
+      &-item {
+        margin: 10px;
+      }
+      &-link {
+        width: 70px;
+        height: 70px;
+        border: 5px solid $main-color;
+        font-size: em(40);
+        transition: background-color 0.3s;
+        &:hover {
+          background-color: $main-color;
+          .contacts__social-icon {
+            color: white;
+          }
+        }
+        @include device(medium) {
+          width: 50px;
+          height: 50px;
+          font-size: em(30);
+          border-width: 3px;
+        }
+      }
+      &-icon {
+        color: $main-color;
+        transition: color 0.3s;
+      }
+    }
+  }
+
+  .accordion-container {
+    margin-top: 90px;
+    @include device(medium) {
+      margin-top: 70px;
+      .innerTitle__title {
+        font-size: em(28);
+      }
+    }
+  }
+}

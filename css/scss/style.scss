@@ -1,0 +1,22 @@
+/*! 
+Theme Name: JiC Imob - Consultoria Imobiliária
+Theme URI: http://www.jicassessoria.cnt.br/
+Author: Guilherme Magno, Úryan Redede
+Author URI: https://github.com/devmagno, https://github.com/uryanredede
+Description: Tema desenvolvido para JiC Imob consultoria imobiliária
+Version: 1.0
+*/
+
+@import 'variables';
+@import 'mixins';
+
+@import 'normalize';
+@import 'reset';
+@import 'flexbox';
+@import 'grid';
+
+@import 'base';
+@import 'helpers';
+
+@import 'pages/pages';
+@import 'components/components';

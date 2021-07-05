@@ -1,0 +1,49 @@
+.accordion {
+  &__item {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    user-select: none;
+    max-width: 650px;
+    margin: 0 auto;
+    &[open] {
+      .accordion__title::after {
+        transform: rotate(225deg);
+      }
+    }
+    @include device(medium) {
+      padding: 8px 0;
+    }
+  }
+  &__title {
+    list-style: none;
+    font-size: em(25);
+    line-height: 1.2;
+    transition: color 0.3s;
+    cursor: pointer;
+    &::after {
+      content: '';
+      padding: 3px;
+      border: solid $main-color;
+      border-width: 0 3px 3px 0;
+      display: block;
+      transform: rotate(45deg);
+      transition: transform 0.3s;
+      margin-left: 10px;
+    }
+    &:hover {
+      color: $main-color;
+    }
+    @include device(medium) {
+      font-size: em(20);
+    }
+  }
+  &__description {
+    margin-top: 10px;
+    line-height: 1.2;
+    color: rgba(0, 0, 0, 0.8);
+    font-size: em(18);
+    @include device(medium) {
+      font-size: em(16);
+    }
+  }
+}

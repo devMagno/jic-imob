@@ -1,0 +1,123 @@
+.page-content--index {
+  padding-top: 0;
+
+  .content {
+    margin-top: 101px;
+    margin-bottom: 101px;
+    @include device(medium) {
+      margin-top: 50px;
+    }
+
+    &__textual {
+      max-width: 590px;
+      @include device(medium) {
+        max-width: unset;
+      }
+    }
+    &__title {
+      @include type(31.25, bold);
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+    &__text {
+      margin-bottom: 46px;
+      > p {
+        line-height: 1.2;
+        @include type(18, regular);
+        & + p {
+          margin-top: 15px;
+        }
+        @include device(medium) {
+          font-size: em(16);
+        }
+      }
+    }
+    &__cta {
+      width: 100%;
+      max-width: 203px;
+      @include device(medium) {
+        margin-bottom: 50px;
+      }
+    }
+
+    &__visual {
+      max-width: 488px;
+      @include device(medium) {
+        max-width: unset;
+      }
+    }
+    &__img1,
+    &__img2,
+    &__img3 {
+      object-fit: cover;
+    }
+    &__img1 {
+      height: 213px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    &__visual2 {
+      height: 213px;
+    }
+  }
+
+  .middlecontent {
+    position: relative;
+    width: 100%;
+
+    .innerTitle {
+      &__title--middlecontent {
+        @include type(31.25, bold);
+        margin-top: 0;
+        margin-bottom: 15px;
+        @include device(medium) {
+          margin-bottom: 5px;
+        }
+      }
+      &__text--middlecontent {
+        @include type(25, regular, 1);
+        text-transform: none;
+        margin-bottom: 40px;
+        line-height: 1.1;
+        @include device(medium) {
+          font-size: em(16);
+          margin-bottom: 30px;
+        }
+      }
+    }
+
+    &__images {
+      margin-bottom: 120px;
+      @include device(medium) {
+        margin-bottom: 50px;
+      }
+    }
+    &__background {
+      height: 307px;
+      position: relative;
+      margin-bottom: 20px;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+    &__btn {
+      position: absolute;
+      object-fit: cover;
+      text-transform: uppercase;
+      bottom: 21px;
+      @include device(medium) {
+        width: 60%;
+        min-width: 190px;
+      }
+    }
+  }
+
+  .adverts {
+    &__cta {
+      max-width: 295px;
+      margin: 0 auto;
+    }
+  }
+}

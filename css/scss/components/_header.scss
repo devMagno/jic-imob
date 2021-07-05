@@ -1,0 +1,137 @@
+.header {
+  background-color: $dark-color;
+  height: 110px;
+  position: relative;
+
+  &__item:last-child {
+    .header__link {
+      margin-right: -20px;
+    }
+  }
+  &__link {
+    color: $light-color;
+    @include type(18);
+    padding: 20px;
+    transition: color 0.3s;
+    position: relative;
+    &::before {
+      content: '';
+      display: block;
+      width: 0px;
+      height: 2px;
+      background-color: $main-color;
+      transition: width 0.3s;
+      position: absolute;
+      bottom: 12px;
+      left: 0;
+      margin: 0 20px;
+    }
+
+    &:hover,
+    &--active {
+      color: $main-color;
+
+      &::before {
+        width: calc(100% - 40px);
+      }
+    }
+  }
+
+  @include device(medium) {
+    height: 80px;
+    &__logo {
+      width: 90px;
+    }
+    &__list {
+      width: 100%;
+      flex-direction: column;
+    }
+    &__item {
+      width: 100%;
+      &:last-child {
+        margin-bottom: 70px;
+        .header__link {
+          padding: 20px;
+          margin-right: 20px;
+        }
+      }
+    }
+    &__link {
+      padding: 20px 0;
+      margin: 0 20px;
+      display: block;
+      text-align: center;
+      border-bottom: 1px solid $accent-color;
+      transition: background-color 0.3s;
+      &:hover,
+      &--active {
+        color: $light-color;
+        background-color: $accent-color;
+
+        &::before {
+          width: 0px;
+          display: none;
+        }
+      }
+    }
+
+    &__nav {
+      transition: all 0.5s;
+      height: 0;
+      visibility: hidden;
+      overflow-y: hidden;
+      display: block;
+      background-color: $dark-color;
+      position: absolute;
+      top: 80px;
+      right: 0;
+      width: 100%;
+      z-index: 100;
+    }
+
+    &__mobileButton {
+      padding: 20px 20px 20px 20px;
+      margin-right: -20px;
+
+      .hamburger {
+        display: block;
+        width: 25px;
+        color: $light-color;
+        border-top: 2px solid;
+
+        &::after,
+        &::before {
+          content: '';
+          display: block;
+          width: 25px;
+          height: 2px;
+          background-color: currentColor;
+          margin-top: 5px;
+          position: relative;
+          transition: all 0.3s;
+        }
+      }
+    }
+
+    &.active {
+      .header__nav {
+        height: calc(100vh - 80px);
+        visibility: visible;
+        overflow-y: auto;
+      }
+      .header__mobileButton {
+        .hamburger {
+          border-top-color: transparent;
+
+          &::after {
+            transform: rotate(45deg);
+            top: -7px;
+          }
+          &::before {
+            transform: rotate(-45deg);
+          }
+        }
+      }
+    }
+  }
+}

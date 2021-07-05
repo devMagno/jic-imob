@@ -1,0 +1,104 @@
+.form {
+  margin-top: 30px;
+  &__group {
+    background: transparent;
+    &:hover .form__input,
+    &:hover textarea {
+      border-color: $dark-color;
+    }
+    &:focus-within .form__input,
+    &:focus-within textarea {
+      border-color: $main-color;
+    }
+    & + & {
+      margin-top: 50px;
+    }
+    & + &--textarea {
+      margin-top: 30px;
+    }
+    &--textarea {
+      label {
+        display: block;
+        font-size: em(20);
+        margin-bottom: 12px;
+      }
+      textarea {
+        width: 100%;
+        border: 2px solid rgba($dark-color, 0.6);
+        resize: vertical;
+        outline: none;
+        transition: border-color 0.3s;
+        color: $dark-color;
+        caret-color: $main-color;
+        padding: 10px;
+        min-height: 44px;
+        height: 80px;
+        max-height: 200px;
+      }
+    }
+  }
+  &__input {
+    outline: none;
+    border: 0;
+    padding-bottom: 8.5px;
+    font-size: em(16);
+    border-bottom: 2px solid rgba($dark-color, 0.6);
+    transition: border-color 0.3s;
+    color: $dark-color;
+    caret-color: $main-color;
+    background: transparent;
+    width: 100%;
+    &:-webkit-autofill::first-line {
+      font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    }
+  }
+  &__input::placeholder {
+    color: rgba(0, 0, 0, 0);
+    user-select: none;
+    pointer-events: none;
+  }
+  &__label {
+    display: block;
+    position: relative;
+    font-weight: 500;
+    font-size: em(20);
+    pointer-events: none;
+    @include device(medium) {
+      font-size: em(18);
+    }
+  }
+  &__label::before,
+  &__label::after {
+    color: $dark-color;
+    content: attr(data-content);
+    display: inline-block;
+    backface-visibility: hidden;
+    transform-origin: left top;
+    transition: transform 200ms ease;
+    left: 2px;
+    position: relative;
+  }
+  &__label::after {
+    content: '*';
+    color: red;
+  }
+  &__input:placeholder-shown + &__label::before,
+  &__input:placeholder-shown + &__label::after {
+    transform: translate3d(0, -2.2rem, 0) scale3d(1, 1, 1);
+  }
+  &__label::before,
+  &__input:focus + &__label::before {
+    transform: translate3d(0, -3.12rem, 0) scale3d(0.82, 0.82, 1);
+  }
+  &__label::after,
+  &__input:focus + &__label::after {
+    transform: translate3d(-13px, -56px, 0) scale3d(0.82, 0.82, 1);
+  }
+  &__button {
+    max-width: 230px;
+    margin-top: 30px;
+    @include device(medium) {
+      max-width: 200px;
+    }
+  }
+}

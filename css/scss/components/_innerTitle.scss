@@ -1,0 +1,15 @@
+.innerTitle {
+  text-align: center;
+  &__text {
+    @include type(16, 'regular', 2);
+    text-transform: uppercase;
+  }
+  &__title {
+    font-size: em(48.83);
+    margin-top: 5px;
+    text-align: center;
+    @include device(medium) {
+      font-size: em(31.25);
+    }
+  }
+}

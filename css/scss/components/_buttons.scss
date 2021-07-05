@@ -1,0 +1,30 @@
+.btn {
+  font-size: em(25);
+  color: white;
+  background-color: $main-color;
+  transition: background-color 0.3s;
+  padding: 12px 18px;
+  text-align: center;
+  line-height: 1.2;
+  @include device(medium) {
+    font-size: em(20);
+    padding: 12px 10px;
+  }
+  &:hover {
+    background-color: $main-darker;
+  }
+  &--radius {
+    border-radius: 8px;
+  }
+  &--full {
+    width: 100%;
+  }
+  &--small {
+    font-size: em(12.8);
+    padding: 14px 5px;
+    text-transform: uppercase;
+  }
+  &--bold {
+    font-weight: bold;
+  }
+}

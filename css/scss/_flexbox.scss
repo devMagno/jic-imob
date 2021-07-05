@@ -1,0 +1,208 @@
+.flex {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  &--wrap {
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+
+  &--nowrap {
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+  }
+  // ---- flex-direction ----
+  &--row {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+
+  &--rev {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+  }
+
+  &--col {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  &--col-rev {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+  }
+  // ---- justify-content ---- h = horizontal
+  &--justify-start {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+  }
+
+  &--justify-end {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+  }
+
+  &--justify-c {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+
+  &--justify-sb {
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+  }
+
+  &--justify-sa {
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+  }
+
+  &--justify-se {
+    -webkit-box-pack: space-evenly;
+    -ms-flex-pack: space-evenly;
+    justify-content: space-evenly;
+  }
+  // ---- align-content ---- v = vertical
+  &--align-start {
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+  }
+
+  &--align-end {
+    -ms-flex-line-pack: end;
+    align-content: flex-end;
+  }
+
+  &--align-c {
+    -ms-flex-line-pack: center;
+    align-content: center;
+  }
+
+  &--align-st {
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+  }
+
+  &--align-sb {
+    -ms-flex-line-pack: justify;
+    align-content: space-between;
+  }
+
+  &--align-sa {
+    -ms-flex-line-pack: distribute;
+    align-content: space-around;
+  }
+  // ---- align-items ----
+  &--items-start {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+  }
+
+  &--items-end {
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+  }
+
+  &--items-c {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  &--items-st {
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+  }
+
+  &--items-base {
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+  }
+  // ---- align-self ----
+  &--self-auto {
+    -ms-flex-item-align: auto;
+    -ms-grid-row-align: auto;
+    align-self: auto;
+  }
+
+  &--self-start {
+    -ms-flex-item-align: start;
+    align-self: flex-start;
+  }
+
+  &--self-end {
+    -ms-flex-item-align: end;
+    align-self: flex-end;
+  }
+
+  &--self-c {
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
+    align-self: center;
+  }
+
+  &--self-st {
+    -ms-flex-item-align: stretch;
+    -ms-grid-row-align: stretch;
+    align-self: stretch;
+  }
+
+  &--self-base {
+    -ms-flex-item-align: baseline;
+    align-self: baseline;
+  }
+
+  &--grow-0 {
+    -webkit-box-flex: 0 !important;
+    -ms-flex-positive: 0 !important;
+    flex-grow: 0 !important;
+  }
+
+  &--grow-1 {
+    -webkit-box-flex: 1 !important;
+    -ms-flex-positive: 1 !important;
+    flex-grow: 1 !important;
+  }
+
+  &--shrink-0 {
+    -ms-flex-negative: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  &--shrink-1 {
+    -ms-flex-negative: 1 !important;
+    flex-shrink: 1 !important;
+  }
+
+  &.gutter {
+    &.row {
+      margin-left: $gutter * -1;
+      margin-right: $gutter * -1;
+      width: calc(100% + (#{$gutter} * 2));
+    }
+
+    > .col,
+    > [class*="col-"] {
+        padding-left: $gutter;
+        padding-right: $gutter;
+    }
+  }
+}
