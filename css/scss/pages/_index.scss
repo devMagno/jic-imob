@@ -79,9 +79,13 @@
         text-transform: none;
         margin-bottom: 40px;
         line-height: 1.1;
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 510px;
         @include device(medium) {
           font-size: em(16);
           margin-bottom: 30px;
+          max-width: 330px;
         }
       }
     }
@@ -96,7 +100,9 @@
       height: 307px;
       position: relative;
       margin-bottom: 20px;
-      img {
+      picture,
+      img,
+      source {
         height: 100%;
         width: 100%;
         object-fit: cover;

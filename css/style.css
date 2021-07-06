@@ -964,11 +964,15 @@ a {
       font-family: 'Roboto', Arial, Helvetica, sans-serif;
       text-transform: none;
       margin-bottom: 40px;
-      line-height: 1.1; }
+      line-height: 1.1;
+      margin-right: auto;
+      margin-left: auto;
+      max-width: 510px; }
       @media only screen and (max-width: 767px) {
         .page-content--index .middlecontent .innerTitle__text--middlecontent {
           font-size: 1em;
-          margin-bottom: 30px; } }
+          margin-bottom: 30px;
+          max-width: 330px; } }
     .page-content--index .middlecontent__images {
       margin-bottom: 120px; }
       @media only screen and (max-width: 767px) {
@@ -978,7 +982,9 @@ a {
       height: 307px;
       position: relative;
       margin-bottom: 20px; }
-      .page-content--index .middlecontent__background img {
+      .page-content--index .middlecontent__background picture,
+      .page-content--index .middlecontent__background img,
+      .page-content--index .middlecontent__background source {
         height: 100%;
         width: 100%;
         -o-object-fit: cover;

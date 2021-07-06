@@ -10,7 +10,8 @@
       <img
         src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1159&q=80"
         alt="" class="banner__background">
-      <h1 class="banner__text container fadeInUp" data-anime="500">Lorem Ipsum dolor sit amet. Duis sed nibh orci. Maecenas in sem dolor.</h1>
+      <!-- <h1 class="banner__text container fadeInUp" data-anime="500"></h1> -->
+      <h1 class="banner__text container"><?php the_field('slogan'); ?></h1>
     </section>
 
     <section class="container content">
@@ -18,15 +19,7 @@
         <div class="content__textual col-6 col-sm-12 flex--col">
           <h2 class="content__title">Quem somos</h2>
           <div class="content__text">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, quod!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt necessitatibus cupiditate error dicta?
-              Perferendis, aliquid.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nihil veniam ab cumque eligendi totam
-              blanditiis ducimus, tenetur, laudantium neque corporis aspernatur consectetur quos. Ex quibusdam optio
-              commodi voluptas natus.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates temporibus, dignissimos iusto,
-              adipisci doloremque et nulla ducimus minus perferendis quas sequi harum similique eligendi fuga?</p>
+            <?php echo wpautop(get_post_meta(get_the_ID(), 'quem-somos-texto', true)); ?>
           </div>
           <a class="content__cta btn btn--radius" href="about.html">Saiba mais</a>
         </div>
@@ -50,26 +43,30 @@
       <div class="middlecontent">
         <div class="innerTitle">
           <h2 class="innerTitle__title innerTitle__title--middlecontent">Serviços Prestados</h2>
-          <p class="innerTitle__text innerTitle__text--middlecontent">Conheça os serviços que prestamos<br>
-            nos ramos imobiliário, financeiro e administrativo.</p>
+          <p class="innerTitle__text innerTitle__text--middlecontent">
+            <?php the_field('servicos-prestados'); ?>
+          </p>
         </div>
         <div class="middlecontent__images flex row gutter flex--wrap flex--justify-c">
           <div class="middlecontent__background col-12 col-sm-12 flex flex--items-end flex--justify-c">
-            <img
-              src="https://images.unsplash.com/photo-1564540574859-0dfb63985953?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-              alt="">
+            <picture>
+              <source srcset="<?php echo wp_get_attachment_image_src(get_field('foto-imob_id'), 'medium')[0]; ?>" media="(max-width: 767px)">
+              <img src="<?php the_field('foto-imob'); ?>" alt="<?php the_field('foto-imob-alt'); ?>">
+            </picture>
             <a href="services.html#imobiliarios" class="btn btn--bold middlecontent__btn">Imobiliário</a>
           </div>
           <div class="middlecontent__background col-6 col-sm-12 flex flex--items-end flex--justify-c">
-            <img
-              src="https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-              alt="">
+            <picture>
+              <source srcset="<?php echo wp_get_attachment_image_src(get_field('foto-adm_id'), 'medium')[0]; ?>" media="(max-width: 767px)">
+              <img src="<?php the_field('foto-adm'); ?>" alt="<?php the_field('foto-adm-alt'); ?>">
+            </picture>
             <a href="services.html#administrativos" class="btn btn--bold middlecontent__btn">Administrativo</a>
           </div>
           <div class="middlecontent__background col-6 col-sm-12 flex flex--items-end flex--justify-c">
-            <img
-              src="https://images.unsplash.com/photo-1427751840561-9852520f8ce8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1055&q=80"
-              alt="">
+            <picture>
+              <source srcset="<?php echo wp_get_attachment_image_src(get_field('foto-con_id'), 'medium')[0]; ?>" media="(max-width: 767px)">
+              <img src="<?php the_field('foto-con'); ?>" alt="<?php the_field('foto-con-alt'); ?>">
+            </picture>
             <a href="services.html#financeiros" class="btn btn--bold middlecontent__btn ">Consultoria</a>
           </div>
           </img>
@@ -81,8 +78,9 @@
       <div class="middlecontent">
         <div class="innerTitle">
           <h2 class="innerTitle__title innerTitle__title--middlecontent">Anúncios Recentes</h2>
-          <p class="innerTitle__text innerTitle__text--middlecontent">Veja nossos anúncios mais recentes e encontre o
-            imóvel certo para você.</p>
+          <p class="innerTitle__text innerTitle__text--middlecontent">
+            <?php the_field('anuncios-recentes'); ?>
+          </p>
         </div>
       </div>
 
