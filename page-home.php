@@ -8,10 +8,9 @@
 
     <section class="banner flex flex--items-c flex--justify-c">
       <img
-        src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1159&q=80"
+        src="<?php the_field('foto-banner') ?>"
         alt="" class="banner__background">
-      <!-- <h1 class="banner__text container fadeInUp" data-anime="500"></h1> -->
-      <h1 class="banner__text container"><?php the_field('slogan'); ?></h1>
+      <h1 class="banner__text container fadeInUp" data-anime="200"><?php the_field('slogan'); ?></h1>
     </section>
 
     <section class="container content">
@@ -25,15 +24,15 @@
         </div>
         <div class="content__visual col-5 col-sm-12">
           <img
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-            alt="" class="content__img1">
+            src="<?php the_field('foto-quem-somos-1'); ?>"
+            alt="<?php the_field('foto-quem-somos-1-alt'); ?>" class="content__img1">
           <div class="content__visual2 flex row gutter">
             <img
-              src="https://images.unsplash.com/photo-1558036117-15d82a90b9b1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-              alt="" class="content__img2 col-7">
+              src="<?php the_field('foto-quem-somos-2'); ?>"
+              alt="<?php the_field('foto-quem-somos-2-alt'); ?>" class="content__img2 col-7">
             <img
-              src="https://images.unsplash.com/photo-1494526585095-c41746248156?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-              alt="" class="content__img3 col-5">
+              src="<?php the_field('foto-quem-somos-3'); ?>"
+              alt="<?php the_field('foto-quem-somos-3-alt'); ?>" class="content__img3 col-5">
           </div>
         </div>
       </div>
@@ -49,31 +48,39 @@
         </div>
         <div class="middlecontent__images flex row gutter flex--wrap flex--justify-c">
           <div class="middlecontent__background col-12 col-sm-12 flex flex--items-end flex--justify-c">
-            <picture>
-              <source srcset="<?php echo wp_get_attachment_image_src(get_field('foto-imob_id'), 'medium')[0]; ?>" media="(max-width: 767px)">
+            <!-- <picture>
+              <source srcset="<?php echo wp_get_attachment_image_src(get_field('foto-imob_id'), 'medium')[0]; ?>" media="(max-width: 767px)"> -->
               <img src="<?php the_field('foto-imob'); ?>" alt="<?php the_field('foto-imob-alt'); ?>">
-            </picture>
-            <a href="services.html#imobiliarios" class="btn btn--bold middlecontent__btn">Imobiliário</a>
+            <!-- </picture> -->
+            <a href="/servicos#imobiliarios" class="btn btn--bold middlecontent__btn">Imobiliário</a>
           </div>
           <div class="middlecontent__background col-6 col-sm-12 flex flex--items-end flex--justify-c">
-            <picture>
-              <source srcset="<?php echo wp_get_attachment_image_src(get_field('foto-adm_id'), 'medium')[0]; ?>" media="(max-width: 767px)">
+            <!-- <picture>
+              <source srcset="<?php echo wp_get_attachment_image_src(get_field('foto-adm_id'), 'medium')[0]; ?>" media="(max-width: 767px)"> -->
               <img src="<?php the_field('foto-adm'); ?>" alt="<?php the_field('foto-adm-alt'); ?>">
-            </picture>
-            <a href="services.html#administrativos" class="btn btn--bold middlecontent__btn">Administrativo</a>
+            <!-- </picture> -->
+            <a href="/servicos#administrativos" class="btn btn--bold middlecontent__btn">Administrativo</a>
           </div>
           <div class="middlecontent__background col-6 col-sm-12 flex flex--items-end flex--justify-c">
-            <picture>
-              <source srcset="<?php echo wp_get_attachment_image_src(get_field('foto-con_id'), 'medium')[0]; ?>" media="(max-width: 767px)">
+            <!-- <picture>
+              <source srcset="<?php echo wp_get_attachment_image_src(get_field('foto-con_id'), 'medium')[0]; ?>" media="(max-width: 767px)"> -->
               <img src="<?php the_field('foto-con'); ?>" alt="<?php the_field('foto-con-alt'); ?>">
-            </picture>
-            <a href="services.html#financeiros" class="btn btn--bold middlecontent__btn ">Consultoria</a>
+            <!-- </picture> -->
+            <a href="/servicos#financeiros" class="btn btn--bold middlecontent__btn ">Consultoria</a>
           </div>
           </img>
         </div>
       </div>
     </section>
 
+    <?php
+      $args = array (
+        'post_type' => 'imoveis',
+        'order'   => 'DESC'
+      );
+      $the_query = new WP_Query ( $args );
+      $i = 0;
+    ?>
     <section class="container advert">
       <div class="middlecontent">
         <div class="innerTitle">
@@ -84,167 +91,64 @@
         </div>
       </div>
 
-      <div class="advert__list flex gutter row flex--wrap">
-        <div class="col-4 col-sm-12 col-lg-6">
+      <div class="advert__list flex row gutter flex--wrap">
+      <?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() && $i < 3 ) : $the_query->the_post(); ?>
+      <div class="col-4 col-sm-12 col-lg-6">
           <div class="advert__item">
             <div class="advert__top">
-              <div class="advert__badge">Usado</div>
+              <div class="advert__badge"><?php the_field('state') ?></div>
               <div class="advert__img">
                 <img
-                  src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-                  alt="">
+                  src="<?php the_field('image'); ?>"
+                  alt="<?php the_title(); ?>">
               </div>
             </div>
             <div class="advert__bottom flex flex--col flex--justify-sb">
               <div class="advert__location">
-                <p class="advert__category-container">Apartamento para <span class="advert__category">Venda</span></p>
-                <p class="advert__city-container">em <span class="advert__city">São Vicente</span></p>
+                <p class="advert__category-container"><?php the_field('type') ?> para <span class="advert__category"><?php the_field('advert-type') ?></span></p>
+                <p class="advert__city-container">em <span class="advert__city"><?php the_field('city') ?></span></p>
               </div>
 
               <p class="advert__neighbourhood-container"><span class="fas fa-map-marker-alt advert__icon"></span> <span
-                  class="advert__neighbourhood">Náutica III</span></p>
+                  class="advert__neighbourhood"><?php the_field('neighbourhood') ?></span></p>
 
               <ul class="advert__info flex flex--justify-sb flex--wrap">
                 <li class="advert__info-item flex flex--col flex--items-c">
                   <span class="advert__icon advert__icon--big fas fa-bed flex flex--items-c flex--justify-c"></span>
                   <p class="advert__info-category">Dorms</p>
-                  <p class="advert__info-quantity">2</p>
+                  <p class="advert__info-quantity"><?php the_field('dorms-quantity') ?></p>
                 </li>
                 <li class="advert__info-item flex flex--col flex--items-c">
                   <span class="advert__icon advert__icon--big fas fa-bath flex flex--items-c flex--justify-c"></span>
                   <p class="advert__info-category">Suítes</p>
-                  <p class="advert__info-quantity">--</p>
+                  <p class="advert__info-quantity"><?php the_field('suites-quantity') ?></p>
                 </li>
                 <li class="advert__info-item flex flex--col flex--items-c">
                   <span class="advert__icon advert__icon--big fas fa-shower flex flex--items-c flex--justify-c"></span>
                   <p class="advert__info-category">Banheiros</p>
-                  <p class="advert__info-quantity">2</p>
+                  <p class="advert__info-quantity"><?php the_field('bathroom-quantity') ?></p>
                 </li>
                 <li class="advert__info-item flex flex--col flex--items-c">
                   <span
                     class="advert__icon advert__icon--big fas fa-th-large flex flex--items-c flex--justify-c"></span>
                   <p class="advert__info-category">Área</p>
-                  <p class="advert__info-quantity">55</p>
+                  <p class="advert__info-quantity"><?php the_field('area-quantity') ?></p>
                 </li>
                 <li class="advert__info-item flex flex--col flex--items-c">
                   <span class="advert__icon advert__icon--big fas fa-car flex flex--items-c flex--justify-c"></span>
                   <p class="advert__info-category">Vagas</p>
-                  <p class="advert__info-quantity">1</p>
+                  <p class="advert__info-quantity"><?php the_field('parking-quantity') ?></p>
                 </li>
               </ul>
 
-              <a href="#" class="advert__button btn btn--bold btn--full btn--small">Entrar em contato</a>
+              <a href="<?php the_permalink(); ?>" class="advert__button btn btn--bold btn--full btn--small">Ver mais</a>
 
             </div>
           </div>
         </div>
-        <div class="col-4 col-sm-12 col-lg-6">
-          <div class="advert__item">
-            <div class="advert__top">
-              <div class="advert__badge">Usado</div>
-              <div class="advert__img">
-                <img
-                  src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-                  alt="">
-              </div>
-            </div>
-            <div class="advert__bottom flex flex--col flex--justify-sb">
-              <div class="advert__location">
-                <p class="advert__category-container">Apartamento para <span class="advert__category">Venda</span></p>
-                <p class="advert__city-container">em <span class="advert__city">São Vicente</span></p>
-              </div>
-
-              <p class="advert__neighbourhood-container"><span class="fas fa-map-marker-alt advert__icon"></span> <span
-                  class="advert__neighbourhood">Náutica III</span></p>
-
-              <ul class="advert__info flex flex--justify-sb flex--wrap">
-                <li class="advert__info-item flex flex--col flex--items-c">
-                  <span class="advert__icon advert__icon--big fas fa-bed flex flex--items-c flex--justify-c"></span>
-                  <p class="advert__info-category">Dorms</p>
-                  <p class="advert__info-quantity">2</p>
-                </li>
-                <li class="advert__info-item flex flex--col flex--items-c">
-                  <span class="advert__icon advert__icon--big fas fa-bath flex flex--items-c flex--justify-c"></span>
-                  <p class="advert__info-category">Suítes</p>
-                  <p class="advert__info-quantity">--</p>
-                </li>
-                <li class="advert__info-item flex flex--col flex--items-c">
-                  <span class="advert__icon advert__icon--big fas fa-shower flex flex--items-c flex--justify-c"></span>
-                  <p class="advert__info-category">Banheiros</p>
-                  <p class="advert__info-quantity">2</p>
-                </li>
-                <li class="advert__info-item flex flex--col flex--items-c">
-                  <span
-                    class="advert__icon advert__icon--big fas fa-th-large flex flex--items-c flex--justify-c"></span>
-                  <p class="advert__info-category">Área</p>
-                  <p class="advert__info-quantity">55</p>
-                </li>
-                <li class="advert__info-item flex flex--col flex--items-c">
-                  <span class="advert__icon advert__icon--big fas fa-car flex flex--items-c flex--justify-c"></span>
-                  <p class="advert__info-category">Vagas</p>
-                  <p class="advert__info-quantity">1</p>
-                </li>
-              </ul>
-
-              <a href="#" class="advert__button btn btn--bold btn--full btn--small">Entrar em contato</a>
-
-            </div>
-          </div>
-        </div>
-        <div class="col-4 col-sm-12 col-lg-6">
-          <div class="advert__item">
-            <div class="advert__top">
-              <div class="advert__badge">Usado</div>
-              <div class="advert__img">
-                <img
-                  src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-                  alt="">
-              </div>
-            </div>
-            <div class="advert__bottom flex flex--col flex--justify-sb">
-              <div class="advert__location">
-                <p class="advert__category-container">Apartamento para <span class="advert__category">Venda</span></p>
-                <p class="advert__city-container">em <span class="advert__city">São Vicente</span></p>
-              </div>
-
-              <p class="advert__neighbourhood-container"><span class="fas fa-map-marker-alt advert__icon"></span> <span
-                  class="advert__neighbourhood">Náutica III</span></p>
-
-              <ul class="advert__info flex flex--justify-sb flex--wrap">
-                <li class="advert__info-item flex flex--col flex--items-c">
-                  <span class="advert__icon advert__icon--big fas fa-bed flex flex--items-c flex--justify-c"></span>
-                  <p class="advert__info-category">Dorms</p>
-                  <p class="advert__info-quantity">2</p>
-                </li>
-                <li class="advert__info-item flex flex--col flex--items-c">
-                  <span class="advert__icon advert__icon--big fas fa-bath flex flex--items-c flex--justify-c"></span>
-                  <p class="advert__info-category">Suítes</p>
-                  <p class="advert__info-quantity">--</p>
-                </li>
-                <li class="advert__info-item flex flex--col flex--items-c">
-                  <span class="advert__icon advert__icon--big fas fa-shower flex flex--items-c flex--justify-c"></span>
-                  <p class="advert__info-category">Banheiros</p>
-                  <p class="advert__info-quantity">2</p>
-                </li>
-                <li class="advert__info-item flex flex--col flex--items-c">
-                  <span
-                    class="advert__icon advert__icon--big fas fa-th-large flex flex--items-c flex--justify-c"></span>
-                  <p class="advert__info-category">Área</p>
-                  <p class="advert__info-quantity">55</p>
-                </li>
-                <li class="advert__info-item flex flex--col flex--items-c">
-                  <span class="advert__icon advert__icon--big fas fa-car flex flex--items-c flex--justify-c"></span>
-                  <p class="advert__info-category">Vagas</p>
-                  <p class="advert__info-quantity">1</p>
-                </li>
-              </ul>
-
-              <a href="#" class="advert__button btn btn--bold btn--full btn--small">Entrar em contato</a>
-
-            </div>
-          </div>
-        </div>
-      </div>
+      <?php $i++ ?>
+      <?php endwhile; else: endif; ?>
+    </div>
       <a href="adverts.html" class="adverts__cta btn btn--radius btn--full">Ver todos os anúncios</a>
     </section>
 

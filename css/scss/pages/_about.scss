@@ -76,6 +76,7 @@
       margin-top: 30px;
     }
     &__container {
+      max-width: 387px;
       @include device(medium) {
         max-width: 366.66px;
         margin-bottom: 20px;

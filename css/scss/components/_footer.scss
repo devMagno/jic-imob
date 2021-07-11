@@ -15,14 +15,20 @@
   &__logo {
     margin-bottom: 25px;
   }
-  &__link {
-    padding: 8px 0;
-    color: $light-color;
-    @include type(20);
-    transition: color 0.3s;
-    &:hover,
-    &--active {
-      color: $main-color;
+  &__nav {
+    ul li {
+      a {
+        padding: 8px 0;
+        color: $light-color;
+        @include type(20);
+        transition: color 0.3s;
+        &:hover {
+          color: $main-color;
+        }
+      }
+      &.current_page_item a {
+        color: $main-color;
+      }
     }
   }
 

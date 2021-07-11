@@ -78,7 +78,10 @@
     left: 2px;
     position: relative;
   }
-  &__label::after {
+  &__input + &__label::after {
+    content: "";
+  }
+  &__input[required] + &__label::after {
     content: '*';
     color: red;
   }

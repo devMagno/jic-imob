@@ -1,9 +1,10 @@
 .page-content--services {
   .content {
-    margin-top: 60px;
-    margin-bottom: 90px;
+    padding-top: 20px;
+    margin-top: 50px;
+    margin-bottom: 80px;
     @include device(medium) {
-      margin-bottom: 50px;
+      margin-bottom: 40px;
     }
     .page-title {
       margin-bottom: 25px;

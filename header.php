@@ -12,30 +12,29 @@
   <script src="https://kit.fontawesome.com/77daa57238.js" crossorigin="anonymous"></script>
 
 
-  <title><?php bloginfo('name'); ?> - Página Inicial</title>
-  <meta name="title" content="<?php bloginfo('name'); ?> - Página Inicial">
-  <meta name="description" content="">
+  <title><?php bloginfo('name'); ?> - <?php the_title(''); ?></title>
+  <meta name="title" content="<?php bloginfo('name'); ?> - <?php the_title(''); ?>">
+  <meta name="description" content="<?php the_field('page-desc'); ?>">
 
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://devmagno.github.io/jic-skeleton">
-  <meta property="og:title" content="<?php bloginfo('name'); ?> - Página Inicial">
-  <meta property="og:description" content="">
-  <meta property="og:image" content="https://devmagno.github.io/jic-skeleton/img/og-image.png">
+  <meta property="og:url" content="<?php bloginfo('url'); ?>">
+  <meta property="og:title" content="<?php bloginfo('name'); ?> - <?php the_title(''); ?>">
+  <meta property="og:description" content="<?php the_field('page-desc'); ?>">
+  <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/img/og-image.png">
 
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://devmagno.github.io/jic-skeleton">
-  <meta property="twitter:title" content="<?php bloginfo('name'); ?> - Página Inicial">
-  <meta property="twitter:description" content="">
-  <meta property="twitter:image" content="https://devmagno.github.io/jic-skeleton/img/og-image.png">
+  <meta property="twitter:url" content="<?php bloginfo('url'); ?>">
+  <meta property="twitter:title" content="<?php bloginfo('name'); ?> - <?php the_title(''); ?>">
+  <meta property="twitter:description" content="<?php the_field('page-desc'); ?>">
+  <meta property="twitter:image" content="<?php echo get_template_directory_uri(); ?>/img/og-image.png">
 
-  <link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_stylesheet_directory_uri(); ?>/img/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_stylesheet_directory_uri(); ?>/img/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="<?php echo get_stylesheet_directory_uri(); ?>/img/favicon/favicon-16x16.png">
-  <link rel="manifest" href="<?php echo get_stylesheet_directory_uri(); ?>/img/favicon/site.webmanifest">
-  <link rel="mask-icon" href="<?php echo get_stylesheet_directory_uri(); ?>/img/favicon/safari-pinned-tab.svg" color="#f26226">
-  <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/img/favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_template_directory_uri(); ?>/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="<?php echo get_template_directory_uri(); ?>/img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="<?php echo get_template_directory_uri(); ?>/img/favicon/site.webmanifest">
+  <link rel="mask-icon" href="<?php echo get_template_directory_uri(); ?>/img/favicon/safari-pinned-tab.svg" color="#f26226">
+  <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/img/favicon/favicon.ico">
   <meta name="msapplication-TileColor" content="#212121">
-  <meta name="msapplication-config" content="<?php echo get_stylesheet_directory_uri(); ?>/img/favicon/browserconfig.xml">
+  <meta name="msapplication-config" content="<?php echo get_template_directory_uri(); ?>/img/favicon/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
 
   <?php wp_head(); ?>
@@ -50,13 +49,14 @@
         <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-header.svg" alt="<?php bloginfo('name'); ?>">
       </a>
       <nav class="header__nav hide-on-mobile">
-        <ul class="header__list flex flex--items-c flex--justify-sb flex--wrap">
-          <li class="header__item"><a href="/" class="header__link header__link--active">Início</a></li>
-          <li class="header__item"><a href="/sobre" class="header__link">Sobre</a></li>
-          <li class="header__item"><a href="/servicos" class="header__link">Serviços</a></li>
-          <li class="header__item"><a href="/anuncios" class="header__link">Anúncios</a></li>
-          <li class="header__item"><a href="/contato" class="header__link">Contato</a></li>
-        </ul>
+        <?php
+          $args = array(
+            'menu' => 'header',
+            'theme_location' => 'header-menu',
+            'container' => false
+          );
+          wp_nav_menu( $args );
+        ?>
       </nav>
       <button class="header__mobileButton hide-on-desk">
         <span class="hamburger"></span>
