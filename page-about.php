@@ -86,7 +86,7 @@
         alt="<?php the_field('foto-cta-alt') ?>" class="cta__background">
       <div class="cta__content">
         <p class="cta__text">Conheça nossos serviços</p>
-        <a href="services.html" class="cta__button btn btn--radius flex flex--items-c flex--justify-c">Saiba mais</a>
+        <a href="/servicos" class="cta__button btn btn--radius flex flex--items-c flex--justify-c">Saiba mais</a>
       </div>
     </div>
   </main>

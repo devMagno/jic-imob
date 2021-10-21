@@ -16,7 +16,7 @@
           <div class="content__text">
             <?php echo wpautop(get_post_meta(get_the_ID(), 'texto-imobiliario', true)); ?>
           </div>
-          <button class="content__cta btn btn--radius">Ver anúncios</button>
+          <a href="/anuncios" class="content__cta btn btn--radius">Ver anúncios</a>
         </div>
         <div class="content__visual col-5 col-sm-12">
           <img
@@ -38,7 +38,7 @@
           <div class="content__text content__text--right">
             <?php echo wpautop(get_post_meta(get_the_ID(), 'texto-administrativo', true)); ?>
           </div>
-          <button class="content__cta btn btn--radius">Entre em contato</button>
+          <a href="/contato" class="content__cta btn btn--radius">Entre em contato</a>
         </div>
       </div>
     </section>
@@ -50,7 +50,7 @@
           <div class="content__text">
             <?php echo wpautop(get_post_meta(get_the_ID(), 'texto-financeiro', true)); ?>
           </div>
-          <button class="content__cta btn btn--radius">Entre em contato</button>
+          <a href="/contato" class="content__cta btn btn--radius">Entre em contato</a>
         </div>
         <div class="content__visual col-5 col-sm-12">
           <img

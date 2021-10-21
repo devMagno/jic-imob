@@ -9,6 +9,17 @@ a {
   cursor: pointer;
 }
 
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  > main {
+    flex: 1;
+  }
+}
+
 .container {
   max-width: 1180px;
   width: 100%;

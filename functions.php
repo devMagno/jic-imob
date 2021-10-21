@@ -1,4 +1,5 @@
 <?php
+wp_enqueue_script('isotope', '//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js', array('jquery'), false, true);
 
 function jic_scripts() {
   wp_register_script( 'plugins', get_template_directory_uri() . '/js/plugins.min.js', array(), false, true );
@@ -522,8 +523,76 @@ function custom_post_type_imoveis() {
       "item_reverted_to_draft" => 'Anúncio movido para "rascunhos".',
       "item_scheduled" => "Anúncio agendado.",
       "item_updated" => "Anúncio atualizado."
-		)
+    ),
 	));
+
+  $conditionLabels = array(
+    'name' => __('Condição'),
+    'singular_name' => __('Condição'),
+    'search_items' => __('Buscar'),
+    'popular_items' => __('Mais utilizadas'),
+    'all_items' => __('Todas as condições'),
+    'parent_item' => null,
+    'parent_item_colon' => null,
+    'edit_item' => __('Editar condição'),
+    'update_item' => __('Atualizar'),
+    'add_new_item' => __('Adicionar nova condição'),
+    'new_item_name' => __('Nova condição')
+  );
+  register_taxonomy('condicao_imoveis', array('imoveis'), array(
+    'hierarchical' => true,
+    'labels' => $conditionLabels,
+    'singular_label' => 'condicao_imovel',
+    'all_items' => 'Condições',
+    'query_var' => true,
+    'rewrite' => array('slug' => 'cat'))
+  );
+
+  $categoryLabels = array(
+    'name' => __('Categoria'),
+    'singular_name' => __('Categoria'),
+    'search_items' => __('Buscar'),
+    'popular_items' => __('Mais utilizadas'),
+    'all_items' => __('Todas as categorias'),
+    'parent_item' => null,
+    'parent_item_colon' => null,
+    'edit_item' => __('Editar categoria'),
+    'update_item' => __('Atualizar'),
+    'add_new_item' => __('Adicionar nova categoria'),
+    'new_item_name' => __('Nova categoria')
+  );
+  register_taxonomy('categoria_imoveis', array('imoveis'), array(
+    'hierarchical' => true,
+    'labels' => $categoryLabels,
+    'singular_label' => 'categoria_imovel',
+    'all_items' => 'Categorias',
+    'query_var' => true,
+    'rewrite' => array('slug' => 'cat'))
+  );
+  
+  $typeLabels = array(
+    'name' => __('Tipo'),
+    'singular_name' => __('Tipo'),
+    'search_items' => __('Buscar'),
+    'popular_items' => __('Mais utilizadas'),
+    'all_items' => __('Todas os tipos'),
+    'parent_item' => null,
+    'parent_item_colon' => null,
+    'edit_item' => __('Editar tipos'),
+    'update_item' => __('Atualizar'),
+    'add_new_item' => __('Adicionar novo tipo'),
+    'new_item_name' => __('Novo tipo')
+  );
+  register_taxonomy('tipo_imoveis', array('imoveis'), array(
+    'hierarchical' => true,
+    'labels' => $typeLabels,
+    'singular_label' => 'tipo_imovel',
+    'all_items' => 'Tipos',
+    'query_var' => true,
+    'rewrite' => array('slug' => 'cat'))
+  );
+
+  flush_rewrite_rules();
 }
 
 add_action('cmb2_admin_init', 'cmb2_fields_imovel');
@@ -535,38 +604,40 @@ function cmb2_fields_imovel() {
     'object_types' => ['imoveis'], 
   ]);
 
-  
   $cmb_imovel->add_field( array(
-    'name'    => 'Estado do imóvel',
-    'id'      => 'state',
-    'type'    => 'radio_inline',
-    'options' => array(
-      'Novo' => 'Novo',
-      'Usado'   => 'Usado'
+    'name'           => 'Tipo do Anúncio',
+    'id'             => 'anuncio-type',
+    'taxonomy'       => 'categoria_imoveis',
+    'type'           => 'taxonomy_multicheck_inline',
+    'select_all_button' => false,
+    'remove_default' => true,
+    'show_option_none' => false,
+    'text'           => array(
+      'no_terms_text' => 'Nenhum tipo foi cadastrado.'
     ),
-    'default' => 'Novo',
-  ) );
-  $cmb_imovel->add_field([
-    'name' => 'Tipo do imovel',
-    'id' => 'type',
-    'type'    => 'radio_inline',
-    'options' => array(
-      'Apartamento' => 'Apartamento',
-      'Casa'   => 'Casa',
-      'Sala de Escritório'   => 'Sala de Escritório',
+  ));
+  $cmb_imovel->add_field( array(
+    'name'           => 'Estado do Imóvel',
+    'id'             => 'imovel-state',
+    'taxonomy'       => 'condicao_imoveis',
+    'type'           => 'taxonomy_radio_inline',
+    'remove_default' => true,
+    'show_option_none' => false,
+    'text'           => array(
+      'no_terms_text' => 'Nenhum estado foi cadastrado.'
     ),
-    'default' => 'Apartamento',
-  ]);
-  $cmb_imovel->add_field([
-    'name' => 'Tipo do anúncio',
-    'id' => 'advert-type',
-    'type'    => 'radio_inline',
-    'options' => array(
-      'Venda' => 'Venda',
-      'Aluguel'   => 'Aluguel'
+  ));
+  $cmb_imovel->add_field( array(
+    'name'           => 'Tipo do Imóvel',
+    'id'             => 'imovel-type',
+    'taxonomy'       => 'tipo_imoveis',
+    'type'           => 'taxonomy_radio_inline',
+    'remove_default' => true,
+    'show_option_none' => false,
+    'text'           => array(
+      'no_terms_text' => 'Nenhum tipo foi cadastrado.'
     ),
-    'default' => 'Venda',
-  ]);
+  ));
   $cmb_imovel->add_field([
     'name' => 'Cidade do imóvel',
     'id' => 'city',
@@ -579,13 +650,26 @@ function cmb2_fields_imovel() {
     'type' => 'text', 
     'desc' => 'Bairro do imóvel, por exemplo: Náutica III, Centro, Aparecida, etc.',
   ]);
-  $cmb_imovel->add_field([
-    'name' => 'Imagem do imóvel',
-    'id' => 'image',
+  $images = $cmb_imovel->add_field([
+    'name' => 'Imagens do imóvel',
+    'desc' => 'Imagens do imóvel para o carrossel da página de detalhes do imóvel (a primeira imagem será a que ficará em destaque nas telas de listagem de imóveis)',
+    'id' => 'images',
+    'type' => 'group',
+    'repeatable' => true,
+    'options' => [
+      'group_title' => '{#}ª imagem',
+      'add_button' => 'Adicionar imagem',
+      'remove_button' => 'Remover imagem',
+      'sortable' => true
+    ]
+    ]);
+  $cmb_imovel->add_group_field($images, [
+    'name' => 'Imagem',
+    'id' => 'inner-image',
+    'type' => 'file',
     'options' => [
       'url' => false,
     ],
-    'type' => 'file'
   ]);
   $cmb_imovel->add_field([
     'name' => 'Quantidade de dormitórios',
