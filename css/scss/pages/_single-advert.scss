@@ -1,0 +1,67 @@
+.page-content--single-advert {
+  padding-top: 0;
+  
+  
+  .images-carousel {
+    max-height: 300px;
+    --swiper-theme-color: #f26226;
+    --swiper-pagination-color: #f26226;
+    --swiper-preloader-color: #f26226;
+    
+    .swiper-wrapper {
+      align-items: stretch;
+    }
+    
+    .swiper-slide {
+      height: auto;
+      
+      a {
+        height: 100%;
+        position: relative;
+      }
+      
+      img {
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    
+    .swiper-pagination-bullet {
+      opacity: .8;
+      background: white;
+      
+      &-active-main {
+        opacity: 1;
+        background: $main-color;
+      }
+    }
+    
+    .swiper-button-next {
+      right: 0;
+      background: rgb(2, 0, 36);
+      background: linear-gradient(90deg, rgba(2, 0, 36, 0) 0%, rgba(0, 0, 0, 0.6) 89%);
+    }
+    
+    .swiper-button-prev {
+      left: 0;
+      background: rgb(2, 0, 36);
+      background: linear-gradient(-90deg, rgba(2, 0, 36, 0) 0%, rgba(0, 0, 0, 0.6) 89%);
+    }
+    
+    .swiper-button-next, .swiper-button-prev {
+      top: 20px;
+      width: 50px;
+      color: white;
+      height: 100%;
+      
+      @media only screen and (max-width: 640px) {
+        display: none;
+      }
+    }
+  }
+}
+
+.pswp img {
+  max-width: none;
+  object-fit: contain;
+}

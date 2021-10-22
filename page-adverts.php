@@ -113,7 +113,7 @@
                     <span
                       class="advert__icon advert__icon--big fas fa-th-large flex flex--items-c flex--justify-c"></span>
                     <p class="advert__info-category">Área</p>
-                    <p class="advert__info-quantity"><?php the_field('area-quantity') ?></p>
+                    <p class="advert__info-quantity"><?php the_field('area-quantity') ?>m²</p>
                   </li>
                   <li class="advert__info-item flex flex--col flex--items-c">
                     <span class="advert__icon advert__icon--big fas fa-car flex flex--items-c flex--justify-c"></span>
