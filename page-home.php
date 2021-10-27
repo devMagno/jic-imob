@@ -96,16 +96,16 @@
       <div class="col-4 col-sm-12 col-lg-6">
           <div class="advert__item">
             <div class="advert__top">
-              <div class="advert__badge"><?php the_field('state') ?></div>
+              <div class="advert__badge"><?php echo $termsSlugCondition ?></div>
               <div class="advert__img">
                 <img
-                  src="<?php the_field('image'); ?>"
+                  src="<?php echo get_field('images')[0]["inner-image"] ?>"
                   alt="<?php the_title(); ?>">
               </div>
             </div>
             <div class="advert__bottom flex flex--col flex--justify-sb">
               <div class="advert__location">
-                <p class="advert__category-container"><?php the_field('type') ?> para <span class="advert__category"><?php the_field('advert-type') ?></span></p>
+                <p class="advert__category-container"><?php the_field('type') ?> para <span class="advert__category"><?php echo $termsCategoryLabel ?></span></p>
                 <p class="advert__city-container">em <span class="advert__city"><?php the_field('city') ?></span></p>
               </div>
 
@@ -132,7 +132,7 @@
                   <span
                     class="advert__icon advert__icon--big fas fa-th-large flex flex--items-c flex--justify-c"></span>
                   <p class="advert__info-category">Área</p>
-                  <p class="advert__info-quantity"><?php the_field('area-quantity') ?></p>
+                  <p class="advert__info-quantity"><?php the_field('area-quantity') ?>m²</p>
                 </li>
                 <li class="advert__info-item flex flex--col flex--items-c">
                   <span class="advert__icon advert__icon--big fas fa-car flex flex--items-c flex--justify-c"></span>

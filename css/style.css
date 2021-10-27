@@ -862,6 +862,9 @@ body {
       .page-content .page-title {
         font-size: 1.5625em; } }
 
+.pswp__ui {
+  height: 100%; }
+
 .fadeInDown {
   -webkit-transform: translate3d(0, -20px, 0);
   transform: translate3d(0, -20px, 0); }
@@ -1290,6 +1293,56 @@ body {
       margin-top: 70px; }
       .page-content--contact .accordion-container .innerTitle__title {
         font-size: 1.75em; } }
+
+.page-content--single-advert {
+  padding-top: 0; }
+  .page-content--single-advert .images-carousel {
+    max-height: 300px;
+    --swiper-theme-color: #f26226;
+    --swiper-pagination-color: #f26226;
+    --swiper-preloader-color: #f26226; }
+    .page-content--single-advert .images-carousel .swiper-wrapper {
+      -webkit-box-align: stretch;
+      -webkit-align-items: stretch;
+      align-items: stretch; }
+    .page-content--single-advert .images-carousel .swiper-slide {
+      height: auto; }
+      .page-content--single-advert .images-carousel .swiper-slide a {
+        height: 100%;
+        position: relative; }
+      .page-content--single-advert .images-carousel .swiper-slide img {
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover; }
+    .page-content--single-advert .images-carousel .swiper-pagination-bullet {
+      opacity: .8;
+      background: white; }
+      .page-content--single-advert .images-carousel .swiper-pagination-bullet-active-main {
+        opacity: 1;
+        background: #f26226; }
+    .page-content--single-advert .images-carousel .swiper-button-next {
+      right: 0;
+      background: #020024;
+      background: -webkit-linear-gradient(left, rgba(2, 0, 36, 0) 0%, rgba(0, 0, 0, 0.6) 89%);
+      background: linear-gradient(90deg, rgba(2, 0, 36, 0) 0%, rgba(0, 0, 0, 0.6) 89%); }
+    .page-content--single-advert .images-carousel .swiper-button-prev {
+      left: 0;
+      background: #020024;
+      background: -webkit-linear-gradient(right, rgba(2, 0, 36, 0) 0%, rgba(0, 0, 0, 0.6) 89%);
+      background: linear-gradient(-90deg, rgba(2, 0, 36, 0) 0%, rgba(0, 0, 0, 0.6) 89%); }
+    .page-content--single-advert .images-carousel .swiper-button-next, .page-content--single-advert .images-carousel .swiper-button-prev {
+      top: 20px;
+      width: 50px;
+      color: white;
+      height: 100%; }
+      @media only screen and (max-width: 640px) {
+        .page-content--single-advert .images-carousel .swiper-button-next, .page-content--single-advert .images-carousel .swiper-button-prev {
+          display: none; } }
+
+.pswp img {
+  max-width: none;
+  -o-object-fit: contain;
+  object-fit: contain; }
 
 .header {
   background-color: #212121;

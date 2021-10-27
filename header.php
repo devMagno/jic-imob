@@ -33,6 +33,10 @@
   <link rel="manifest" href="<?php echo get_template_directory_uri(); ?>/img/favicon/site.webmanifest">
   <link rel="mask-icon" href="<?php echo get_template_directory_uri(); ?>/img/favicon/safari-pinned-tab.svg" color="#f26226">
   <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/img/favicon/favicon.ico">
+
+  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/js/photoswipe/photoswipe.css">
+  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/js/photoswipe/default-skin/default-skin.css">
+
   <meta name="msapplication-TileColor" content="#212121">
   <meta name="msapplication-config" content="<?php echo get_template_directory_uri(); ?>/img/favicon/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
