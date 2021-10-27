@@ -2,7 +2,7 @@
 
   <main class="page-content page-content--index">
 
-  <p>Template Index</p>
+  <p>fazer 404 depois</p>
 
   </main>
 

@@ -14,7 +14,7 @@
     <div class="content-container container">
       <div class="flex row gutter flex--wrap flex--justify-sb">
         <section class="form-section col-sm-12 col-6">
-          <form action="" id="contactForm" class="form">
+          <form action="" id="contactForm" class="form" autocomplete="on">
             <div class="form__group">
               <input type="text" class="form__input" placeholder="Nome" id="name" name="name" required>
               <label for="name" class="form__label" data-content="Nome">
@@ -22,23 +22,35 @@
               </label>
             </div>
             <div class="form__group">
-              <input type="tel" class="form__input" placeholder="Telefone" id="phone" name="phone">
+              <input type="tel" class="form__input" placeholder="Telefone" id="phone" name="phone" required>
               <label for="phone" class="form__label" data-content="Telefone">
                 <div class="sr-only">Telefone</div>
               </label>
             </div>
-            <div class="form__group">
+            <!-- <div class="form__group">
               <input type="email" class="form__input" placeholder="exemplo@gmail.com" id="email" name="email" required>
               <label for="email" class="form__label" data-content="E-mail">
                 <div class="sr-only">E-mail</div>
               </label>
-            </div>
+            </div> -->
             <div class="form__group form__group--textarea">
               <label for="message">Mensagem</label>
               <textarea name="message" id="message"></textarea>
             </div>
             <button type="submit" class="form__button btn btn--radius btn--bold btn--full">Enviar</button>
+            <script>
+            window.open('https://api.whatsapp.com/send?l=pt_BR&phone=55{{Telefone}}&text=Olá, gostaria de agendar uma visita no {{Telefone}}!', '_blank');"
+
+form.addEventListener('submit', function() {
+  var message = document.querySelector('message').value
+
+  window.open('https://api.whatsapp.com/send?l=pt_BR&phone=55<?php the_field('telefone') ?>
+  &text={{message}}!', '_blank');"
+})
+</script>
           </form>
+
+          
         </section>
         <section class="contacts-section col-sm-12 col-6">
           <div class="contacts">

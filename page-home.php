@@ -149,7 +149,7 @@
       <?php $i++ ?>
       <?php endwhile; else: endif; ?>
     </div>
-      <a href="adverts.html" class="adverts__cta btn btn--radius btn--full">Ver todos os anúncios</a>
+      <a href="/anuncios" class="adverts__cta btn btn--radius btn--full">Ver todos os anúncios</a>
     </section>
 
   </main>

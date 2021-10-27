@@ -6,12 +6,19 @@
   padding: 12px 18px;
   text-align: center;
   line-height: 1.2;
+  cursor: pointer;
   @include device(medium) {
     font-size: em(20);
     padding: 12px 10px;
   }
   &:hover {
     background-color: $main-darker;
+  }
+  &.active {
+    background-color: darken($main-darker, 10%);
+    &:hover {
+      background-color: darken($main-darker, 10%);
+    }
   }
   &--radius {
     border-radius: 8px;

@@ -1,3 +1,53 @@
 .page-content--adverts {
   padding-bottom: 0;
 }
+
+.advert {
+  &__filters {
+    margin-top: 50px;
+    margin-bottom: 40px;
+    > div {
+      padding: 10px 15px;
+      border: 1px solid rgba(0, 0, 0, 0.3);
+
+      & ~ div {
+        margin-top: 20px;
+      }
+    }
+
+    button {
+      padding: 9px 0;
+      line-height: 0;
+      position: relative;
+      &::before {
+        content: '';
+        display: block;
+        width: 11px;
+        height: 11px;
+        margin-right: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        display: none;
+      }
+
+      &.active {
+        &::after {
+          display: block;
+          left: 4px;
+          top: 11px;
+          width: 3px;
+          height: 5px;
+          border: solid $main-color;
+          border-width: 0 2px 2px 0;
+          -webkit-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+}
