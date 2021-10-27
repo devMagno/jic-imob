@@ -663,6 +663,18 @@ function cmb2_fields_imovel()
         'desc' => 'Cidade do imóvel, por exemplo: Santos, São Vicente, Praia Grande, etc.',
     ]);
     $cmb_imovel->add_field([
+      'name' => 'Preço do imóvel',
+      'id' => 'preço',
+      'type' => 'number',
+      'desc' => 'Preço referente ao imóvel',
+    ]);
+    $cmb_imovel->add_field([
+      'name' => 'Iptu',
+      'id' => 'iptu',
+      'type' => 'number',
+      'desc' => 'Valor referente ao iptu do imóvel',
+    ]);
+    $cmb_imovel->add_field([
         'name' => 'Bairro do imóvel',
         'id' => 'neighbourhood',
         'type' => 'text',
