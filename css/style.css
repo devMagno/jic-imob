@@ -1295,7 +1295,8 @@ body {
         font-size: 1.75em; } }
 
 .page-content--single-advert {
-  padding-top: 0; }
+  padding-top: 0;
+  padding-bottom: 60px; }
   .page-content--single-advert .images-carousel {
     max-height: 300px;
     --swiper-theme-color: #f26226;
@@ -1343,6 +1344,20 @@ body {
   max-width: none;
   -o-object-fit: contain;
   object-fit: contain; }
+
+.single-title {
+  padding-bottom: 30px;
+  margin-left: 50px; }
+  .single-title__title {
+    font-size: 1.5625em; }
+
+.single-icons {
+  width: 80%;
+  padding-bottom: 30px; }
+
+.single-details {
+  width: 100%;
+  margin-left: 50px; }
 
 .header {
   background-color: #212121;

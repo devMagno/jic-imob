@@ -1,7 +1,7 @@
 .page-content--single-advert {
   padding-top: 0;
-  
-  
+  padding-bottom: 60px;
+
   .images-carousel {
     max-height: 300px;
     --swiper-theme-color: #f26226;
@@ -64,4 +64,24 @@
 .pswp img {
   max-width: none;
   object-fit: contain;
+}
+
+.single-title{
+  padding-bottom: 30px;
+  margin-left: 50px;
+
+  &__title {
+    font-size: em(25); 
+    
+  }
+}
+.single-icons{
+  width: 80%;
+  padding-bottom: 30px;
+  
+}
+.single-details{
+  width: 100%;
+  margin-left: 50px;
+  
 }

@@ -665,13 +665,13 @@ function cmb2_fields_imovel()
     $cmb_imovel->add_field([
       'name' => 'Preço do imóvel',
       'id' => 'preço',
-      'type' => 'number',
+      'type' => 'text',
       'desc' => 'Preço referente ao imóvel',
     ]);
     $cmb_imovel->add_field([
       'name' => 'Iptu',
       'id' => 'iptu',
-      'type' => 'number',
+      'type' => 'text',
       'desc' => 'Valor referente ao iptu do imóvel',
     ]);
     $cmb_imovel->add_field([
@@ -736,6 +736,12 @@ function cmb2_fields_imovel()
         'id' => 'address',
         'type' => 'textarea_small',
         'desc' => 'Logradouro completo do imóvel anunciado.',
+    ]);
+    $cmb_imovel->add_field([
+        'name' => 'Detalhes do imóvel',
+        'id' => 'detalhe',
+        'type' => 'textarea_large',
+        'desc' => 'informar de forma mais completa detalhes do imóvel a ser vendido',
     ]);
 }
 
