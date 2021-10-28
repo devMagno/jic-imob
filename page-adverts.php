@@ -29,7 +29,7 @@
             $terms = get_terms('categoria_imoveis');
             foreach ($terms as  $term) { ?>
               <button class="flex flex--items-c" data-filter=".<?php  echo $term->slug; ?>"><?php echo $term->name; ?></button>
-          <?php  
+          <?php
             }
           ?>
         </div>
@@ -38,7 +38,7 @@
             $terms2 = get_terms('condicao_imoveis');
             foreach ($terms2 as  $term) { ?>
               <button class="flex flex--items-c" data-filter=".<?php  echo $term->slug; ?>"><?php echo $term->name; ?></button>
-          <?php  
+          <?php
             }
           ?>
         </div>
@@ -47,13 +47,13 @@
             $terms3 = get_terms('tipo_imoveis');
             foreach ($terms3 as  $term) { ?>
               <button class="flex flex--items-c" data-filter=".<?php  echo $term->slug; ?>"><?php echo $term->name; ?></button>
-          <?php  
+          <?php
             }
           ?>
         </div>
       </div>
       <div class="grid advert__list flex row gutter flex--justify-c flex--wrap content col-10">
-        <?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
+        <?php  if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
         $termsArrayCategory = get_the_terms($post->ID, 'categoria_imoveis');
         $termsSlugCategory = "";
         $termsCategoryLabel = "";
@@ -127,7 +127,7 @@
               </div>
             </div>
           </div>
-          
+
         <?php endwhile; else:endif; ?>
         <?php wp_reset_query(); wp_reset_postdata(); ?>
       </div>

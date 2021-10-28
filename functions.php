@@ -1,14 +1,10 @@
 <?php
-wp_enqueue_script('isotope', '//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js', array('jquery'), false, true);
-
 function jic_scripts()
 {
     wp_register_script('plugins', get_template_directory_uri() . '/js/plugins.min.js', array(), false, true);
     wp_register_script('our-code', get_template_directory_uri() . '/js/script.min.js', array(), false, true);
-    wp_register_Script('photoswipe', get_template_directory_uri() . '/js/photoswipe/photoswipe.js', array(), false, true);
-    wp_register_Script('photoswipe-ui-default', get_template_directory_uri() . '/js/photoswipe/photoswipe-ui-default.js', array(), false, true);
 
-    wp_enqueue_script(['plugins', 'our-code', 'photoswipe', 'photoswipe-ui-default']);
+    wp_enqueue_script(['plugins', 'our-code']);
 }
 
 add_action('wp_enqueue_scripts', 'jic_scripts');
@@ -663,16 +659,16 @@ function cmb2_fields_imovel()
         'desc' => 'Cidade do imóvel, por exemplo: Santos, São Vicente, Praia Grande, etc.',
     ]);
     $cmb_imovel->add_field([
-      'name' => 'Preço do imóvel',
-      'id' => 'preço',
-      'type' => 'text',
-      'desc' => 'Preço referente ao imóvel',
+        'name' => 'Preço do imóvel',
+        'id' => 'preço',
+        'type' => 'text',
+        'desc' => 'Preço referente ao imóvel',
     ]);
     $cmb_imovel->add_field([
-      'name' => 'Iptu',
-      'id' => 'iptu',
-      'type' => 'text',
-      'desc' => 'Valor referente ao iptu do imóvel',
+        'name' => 'Iptu',
+        'id' => 'iptu',
+        'type' => 'text',
+        'desc' => 'Valor referente ao iptu do imóvel',
     ]);
     $cmb_imovel->add_field([
         'name' => 'Bairro do imóvel',
