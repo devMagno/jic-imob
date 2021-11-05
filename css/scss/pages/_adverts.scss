@@ -3,22 +3,29 @@
 }
 
 .advert {
+  > .flex {
+    overflow: hidden;
+  }
+  
   &__filters {
+    min-width: 198px;
     margin-top: 50px;
     margin-bottom: 40px;
+    
     > div {
       padding: 10px 15px;
       border: 1px solid rgba(0, 0, 0, 0.3);
-
+      
       & ~ div {
         margin-top: 20px;
       }
     }
-
+    
     button {
       padding: 9px 0;
       line-height: 0;
       position: relative;
+      
       &::before {
         content: '';
         display: block;
@@ -27,13 +34,13 @@
         margin-right: 8px;
         border: 1px solid rgba(0, 0, 0, 0.3);
       }
-
+      
       &::after {
         content: '';
         position: absolute;
         display: none;
       }
-
+      
       &.active {
         &::after {
           display: block;
@@ -47,6 +54,60 @@
           -ms-transform: rotate(45deg);
           transform: rotate(45deg);
         }
+      }
+    }
+  }
+  
+  @include device(medium) {
+    > .flex {
+      flex-direction: column;
+    }
+    
+    &__filters {
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      
+      flex: 1;
+      width: 100%;
+      
+      > div {
+        flex: 1;
+        margin: 10px;
+        //flex-wrap: wrap;
+        align-items: center;
+        flex-direction: row;
+        
+        &:last-child {
+          flex-wrap: wrap;
+          flex: 1 1 200px;
+        }
+        
+        ~ div {
+          margin-top: 10px;
+        }
+        
+        button {
+          padding: 9px;
+          //flex: 1 1 150px;
+          
+          &.active::after {
+            left: 13px;
+          }
+        }
+      }
+    }
+    
+    &__list {
+      flex: unset;
+      margin-top: 0 !important;
+      
+      .col-5 {
+        flex: unset;
+        width: 100%;
+        left: 0 !important;
       }
     }
   }
