@@ -664,7 +664,7 @@ function cmb2_fields_imovel()
     ]);
     $cmb_imovel->add_field([
       'name' => 'Preço do imóvel',
-      'id' => 'preço',
+      'id' => 'price',
       'type' => 'text',
       'desc' => 'Preço referente ao imóvel',
     ]);
@@ -739,8 +739,8 @@ function cmb2_fields_imovel()
     ]);
     $cmb_imovel->add_field([
         'name' => 'Detalhes do imóvel',
-        'id' => 'detalhe',
-        'type' => 'textarea_large',
+        'id' => 'detail',
+        'type' => 'textarea',
         'desc' => 'informar de forma mais completa detalhes do imóvel a ser vendido',
     ]);
 }

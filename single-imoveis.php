@@ -22,13 +22,12 @@
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
       </div>
-    </main>
-    <section class="single container">
-      <div class="single-title flex">
-        <p class=" single-title__title"><?php the_field('type') ?> para <span class="single-title__title"><?php echo $termsCategoryLabel ?></span>
-          em <span class="single-title__title"><?php the_field('city') ?></span></p>
-      </div>
-      <div class="single-icons">
+    <section class="single container flex flex--justify-sb">
+      <div class="single__content col-7 col-sm-12 flex--col">
+      <h1 class="single__title"> <?php the_field('type') ?> para <span class="single__title"><?php echo $termsCategoryLabel ?></span>
+       em <span class="single__title"><?php the_field('city') ?></span>
+      </h1>
+      <div class="single__icons">
       <ul class="advert__info flex flex--justify-sb flex--wrap">
         <li class="advert__info-item flex flex--col flex--items-c">
           <span class="advert__icon advert__icon--big fas fa-bed flex flex--items-c flex--justify-c"></span>
@@ -58,10 +57,18 @@
       </ul>
       </div>
       <div class="single-details">
-        <p>Detalhes do imóvel</p>
-        <p></p>
+        <h2 class="single__title">Detalhes do imóvel</h1>
+        <p class=""><?php the_field('detail')?></p>
+        </p>
+      </div>
+      </div>
+      <div class="single__preço col-2 col-sm-12 flex--col">
+       <p>Valor</p>
+       <p class="single__preço-valor"><?php the_field('price')?></p>
       </div>
     </section>
+    </main>
+    
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         const galleryCarousel = new Swiper('.images-carousel', {
