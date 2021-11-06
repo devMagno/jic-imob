@@ -1,6 +1,7 @@
 @function em($size, $context: 16) {
   @return $size / $context + em;
 }
+
 @mixin type($size, $weight: regular, $family: 1) {
   font-size: em($size);
   @if $weight == regular {
@@ -8,7 +9,7 @@
   } @else if $weight == bold {
     font-weight: 700;
   }
-
+  
   @if $family == 1 {
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
   } @else if $family == 2 {

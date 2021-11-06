@@ -1,6 +1,7 @@
 * {
   color: $dark-color;
 }
+
 a {
   display: block;
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
@@ -15,7 +16,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   overflow-x: hidden;
-
+  
   > main {
     flex: 1;
   }
@@ -36,7 +37,7 @@ body {
     padding-bottom: 70px;
   }
   position: relative;
-
+  
   // &::before,
   // &::after {
   //   content: '';
@@ -55,10 +56,11 @@ body {
   //   left: -50px;
   //   bottom: 90px;
   // }
-
+  
   .page-title {
     display: inline-block;
     font-size: em(31.25);
+    
     &::after {
       content: '';
       height: 2px;
@@ -66,6 +68,7 @@ body {
       margin-top: 4px;
       background-color: currentColor;
     }
+    
     @include device(medium) {
       font-size: em(25);
     }
@@ -81,12 +84,15 @@ body {
 .fadeInDown {
   transform: translate3d(0, -20px, 0);
 }
+
 .fadeInUp {
   transform: translate3d(0, 20px, 0);
 }
+
 .fadeInRight {
   transform: translate3d(20px, 0, 0);
 }
+
 .fadeInLeft {
   transform: translate3d(-20px, 0, 0);
 }
@@ -94,6 +100,7 @@ body {
 [data-anime] {
   opacity: 0;
 }
+
 .anime {
   opacity: 1;
   transform: none;

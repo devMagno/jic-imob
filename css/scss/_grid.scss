@@ -4,7 +4,7 @@
     margin-right: $gutter * -1;
     width: calc(100% + (#{$gutter} * 2));
   }
-
+  
   > .col,
   > [class*='col-'] {
     padding-left: $gutter;
@@ -14,7 +14,7 @@
 
 @mixin createColumns($class: '') {
   $c: '-' + $class;
-
+  
   @if $class == '' {
     $c: '-';
   } @else {
@@ -35,9 +35,11 @@
 @include device(medium) {
   @include createColumns(sm);
 }
+
 @include device(large) {
   @include createColumns(lg);
 }
+
 @media only screen and (max-width: 800px) {
   @include createColumns((md));
 }

@@ -2,6 +2,7 @@
   &__list {
     margin-top: 50px;
   }
+  
   &__item {
     max-width: 367px;
     border-radius: 10px;
@@ -10,20 +11,23 @@
     background-color: white;
     border: 1px solid rgba(0, 0, 0, 0.3);
     transition: all 0.3s;
+    
     &:hover {
       box-shadow: 0 3px 6px rgba(#000, 0.16), 0 3px 6px rgba(#000, 0.23);
       transform: translate3D(0, -5px, 0);
     }
+    
     @include device(medium) {
       margin-bottom: 30px;
     }
   }
-
+  
   //* TOP
   &__top {
     position: relative;
     height: 210px;
   }
+  
   &__badge {
     position: absolute;
     z-index: 2;
@@ -35,56 +39,70 @@
     top: 16px;
     left: 20px;
   }
+  
   &__img img {
     object-fit: cover;
     height: 210px;
     width: 100%;
   }
-
+  
   //* BOTTOM
   &__bottom {
     padding: 20px;
   }
-
+  
   &__city,
   &__category {
     font-weight: bold;
     text-transform: capitalize;
+    
+    span {
+      text-transform: lowercase;
+      &:last-of-type {
+        display: none;
+      }
+    }
+    
     &-container {
       line-height: 1.2;
     }
   }
-
+  
   &__neighbourhood {
     margin-left: 2px;
+    
     &-container {
       margin: 10px 0 26px;
     }
   }
-
+  
   &__info {
     &-item {
       flex: 1 1 55px;
       margin-bottom: 15px;
     }
+    
     &-category {
       font-size: em(16);
       margin: 10px 0 5px;
     }
+    
     &-quantity {
       font-weight: bold;
       font-size: em(20);
     }
   }
+  
   &__icon {
     color: $main-color;
     font-size: em(20);
+    
     &--big {
       min-height: 25px;
       font-size: em(25);
     }
   }
-
+  
   &__button {
     margin-top: 20px;
   }

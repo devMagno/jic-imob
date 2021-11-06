@@ -659,16 +659,10 @@ function cmb2_fields_imovel()
         'desc' => 'Cidade do imóvel, por exemplo: Santos, São Vicente, Praia Grande, etc.',
     ]);
     $cmb_imovel->add_field([
-        'name' => 'Preço do imóvel',
+        'name' => 'Preço do imóvel (ou valor do aluguel, se for aluguel)',
         'id' => 'price',
         'type' => 'text',
         'desc' => 'Preço referente ao imóvel',
-    ]);
-    $cmb_imovel->add_field([
-        'name' => 'Iptu',
-        'id' => 'iptu',
-        'type' => 'text',
-        'desc' => 'Valor referente ao iptu do imóvel',
     ]);
     $cmb_imovel->add_field([
         'name' => 'Bairro do imóvel',
@@ -689,6 +683,88 @@ function cmb2_fields_imovel()
             'sortable' => true
         ]
     ]);
+    $cmb_imovel->add_field([
+        'name' => 'Quantidade de dormitórios',
+        'id' => 'dorms-quantity',
+        'type' => 'text',
+        'attributes' => array(
+            'type' => 'number',
+            'pattern' => '\d*',
+        ),
+        'sanitization_cb' => 'absint',
+        'escape_cb' => 'absint',
+        'desc' => 'Quantidade de dormitórios do imóvel (SE NÃO HOUVER, DEIXAR VAZIO OU COMO "0")',
+    ]);
+    $cmb_imovel->add_field([
+        'name' => 'Quantidade de suítes',
+        'id' => 'suites-quantity',
+        'type' => 'text',
+        'attributes' => array(
+            'type' => 'number',
+            'pattern' => '\d*',
+        ),
+        'sanitization_cb' => 'absint',
+        'escape_cb' => 'absint',
+        'desc' => 'Quantidade de suítes do imóvel (SE NÃO HOUVER, DEIXAR VAZIO OU COMO "0")',
+    ]);
+    $cmb_imovel->add_field([
+        'name' => 'Quantidades de banheiros',
+        'id' => 'bathroom-quantity',
+        'type' => 'text',
+        'attributes' => array(
+            'type' => 'number',
+            'pattern' => '\d*',
+        ),
+        'sanitization_cb' => 'absint',
+        'escape_cb' => 'absint',
+        'desc' => 'Quantidade de banheiros do imóvel (SE NÃO HOUVER, DEIXAR VAZIO OU COMO "0")',
+    ]);
+    $cmb_imovel->add_field([
+        'name' => 'Área total do imóvel',
+        'id' => 'area-quantity',
+        'type' => 'text',
+        'attributes' => array(
+            'type' => 'number',
+            'pattern' => '\d*',
+        ),
+        'sanitization_cb' => 'absint',
+        'escape_cb' => 'absint',
+        'desc' => 'Inserir a área total em metros quadrados e inserir apenas o número, como: "55"',
+    ]);
+    $cmb_imovel->add_field([
+        'name' => 'Área útil do imóvel',
+        'id' => 'util-area-quantity',
+        'type' => 'text',
+        'attributes' => array(
+            'type' => 'number',
+            'pattern' => '\d*',
+        ),
+        'sanitization_cb' => 'absint',
+        'escape_cb' => 'absint',
+        'desc' => 'Inserir a área útil em metros quadrados e inserir apenas o número, como: "55"',
+    ]);
+    $cmb_imovel->add_field([
+        'name' => 'Vagas de carro',
+        'id' => 'parking-quantity',
+        'type' => 'text',
+        'attributes' => array(
+            'type' => 'number',
+            'pattern' => '\d*',
+        ),
+        'sanitization_cb' => 'absint',
+        'escape_cb' => 'absint',
+        'desc' => 'Quantidade de vagas de estacionamento do imóvel (SE NÃO HOUVER, DEIXAR VAZIO OU COMO "0")',
+    ]);
+    $cmb_imovel->add_field([
+        'name' => 'Aceita pet?',
+        'id' => 'allows-pet',
+        'type' => 'radio_inline',
+        'options' => array(
+            'standard' => 'Sim',
+            'custom' => 'Não',
+        ),
+        'default' => 'standard',
+    ]);
     $cmb_imovel->add_group_field($images, [
         'name' => 'Imagem',
         'id' => 'inner-image',
@@ -698,46 +774,28 @@ function cmb2_fields_imovel()
         ],
     ]);
     $cmb_imovel->add_field([
-        'name' => 'Quantidade de dormitórios',
-        'id' => 'dorms-quantity',
+        'name' => 'IPTU',
+        'id' => 'iptu',
         'type' => 'text',
-        'desc' => 'Quantidade de dormitórios do imóvel (SE NÃO HOUVER, INSERIR DOIS TRAÇOS COMO: "--")',
+        'attributes' => array(
+            'type' => 'number',
+            'pattern' => '\d*',
+        ),
+        'sanitization_cb' => 'absint',
+        'escape_cb' => 'absint',
+        'desc' => 'Valor referente ao IPTU por mês do imóvel',
     ]);
     $cmb_imovel->add_field([
-        'name' => 'Quantidade de suítes',
-        'id' => 'suites-quantity',
+        'name' => 'Condomínio',
+        'id' => 'condominium',
         'type' => 'text',
-        'desc' => 'Quantidade de suítes do imóvel (SE NÃO HOUVER, INSERIR DOIS TRAÇOS COMO: "--")',
-    ]);
-    $cmb_imovel->add_field([
-        'name' => 'Quantidades de banheiros',
-        'id' => 'bathroom-quantity',
-        'type' => 'text',
-        'desc' => 'Quantidade de banheiros do imóvel (SE NÃO HOUVER, INSERIR DOIS TRAÇOS COMO: "--")',
-    ]);
-    $cmb_imovel->add_field([
-        'name' => 'Área do imóvel',
-        'id' => 'area-quantity',
-        'type' => 'text',
-        'desc' => 'Inserir a área em metros quadrados e inserir apenas o número, como: "55"',
-    ]);
-    $cmb_imovel->add_field([
-        'name' => 'Vagas de carro',
-        'id' => 'parking-quantity',
-        'type' => 'text',
-        'desc' => 'Quantidade de vagas de estacionamento do imóvel (SE NÃO HOUVER, INSERIR DOIS TRAÇOS COMO: "--")',
-    ]);
-    $cmb_imovel->add_field([
-        'name' => 'Endereço do Imóvel',
-        'id' => 'address',
-        'type' => 'textarea_small',
-        'desc' => 'Logradouro completo do imóvel anunciado.',
-    ]);
-    $cmb_imovel->add_field([
-        'name' => 'Detalhes do imóvel',
-        'id' => 'detail',
-        'type' => 'textarea',
-        'desc' => 'informar de forma mais completa detalhes do imóvel a ser vendido',
+        'attributes' => array(
+            'type' => 'number',
+            'pattern' => '\d*',
+        ),
+        'sanitization_cb' => 'absint',
+        'escape_cb' => 'absint',
+        'desc' => 'Valor referente ao condomínio por mês do imóvel (se houver)',
     ]);
 }
 

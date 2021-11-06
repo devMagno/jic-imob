@@ -1,0 +1,48 @@
+.not-found {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+  
+  h1 {
+    @include type(32, bold);
+  }
+  
+  a {
+    display: block;
+    margin-top: 20px;
+    text-decoration: underline;
+  }
+  
+  &::before,
+  &::after {
+    content: '';
+    height: 4px;
+    width: 300px;
+    background-color: $main-color;
+    position: absolute;
+    transform: rotate(45deg);
+    z-index: 1;
+  }
+  
+  &::before {
+    left: -104px;
+    bottom: 50px;
+  }
+  
+  &::after {
+    left: -50px;
+    bottom: 90px;
+  }
+  
+  @include device(medium) {
+    &::before {
+      bottom: 10px;
+    }
+    &::after {
+      bottom: -20px;
+    }
+  }
+}

@@ -98,7 +98,7 @@
               $termsCategoryLabel = "";
               foreach ($termsArrayCategory as $term) {
                   $termsSlugCategory .= $term->slug . ' ';
-                  $termsCategoryLabel .= $term->slug . ' ';
+                  $termsCategoryLabel .= $term->slug . ' <span>e</span> ';
               }
 
               $termsArrayCondition = get_the_terms($post->ID, 'condicao_imoveis');
@@ -136,39 +136,54 @@
                         class="advert__neighbourhood"><?php the_field('neighbourhood') ?></span></p>
 
                   <ul class="advert__info flex flex--justify-sb flex--wrap">
-                    <li class="advert__info-item flex flex--col flex--items-c">
-                      <span class="advert__icon advert__icon--big fas fa-bed flex flex--items-c flex--justify-c"></span>
-                      <p class="advert__info-category">Dorms</p>
-                      <p class="advert__info-quantity"><?php the_field('dorms-quantity') ?></p>
-                    </li>
-                    <li class="advert__info-item flex flex--col flex--items-c">
-                      <span
-                          class="advert__icon advert__icon--big fas fa-bath flex flex--items-c flex--justify-c"></span>
-                      <p class="advert__info-category">Suítes</p>
-                      <p class="advert__info-quantity"><?php the_field('suites-quantity') ?></p>
-                    </li>
-                    <li class="advert__info-item flex flex--col flex--items-c">
-                      <span
-                          class="advert__icon advert__icon--big fas fa-shower flex flex--items-c flex--justify-c"></span>
-                      <p class="advert__info-category">Banheiros</p>
-                      <p class="advert__info-quantity"><?php the_field('bathroom-quantity') ?></p>
-                    </li>
-                    <li class="advert__info-item flex flex--col flex--items-c">
-                  <span
-                      class="advert__icon advert__icon--big fas fa-th-large flex flex--items-c flex--justify-c"></span>
-                      <p class="advert__info-category">Área</p>
-                      <p class="advert__info-quantity"><?php the_field('area-quantity') ?>m²</p>
-                    </li>
-                    <li class="advert__info-item flex flex--col flex--items-c">
-                      <span class="advert__icon advert__icon--big fas fa-car flex flex--items-c flex--justify-c"></span>
-                      <p class="advert__info-category">Vagas</p>
-                      <p class="advert__info-quantity"><?php the_field('parking-quantity') ?></p>
-                    </li>
+                      <?php if (trim(get_field('dorms-quantity')) != "" && trim(get_field('dorms-quantity')) != 0) { ?>
+                        <li class="advert__info-item flex flex--col flex--items-c">
+                            <span
+                                class="advert__icon advert__icon--big fas fa-bed flex flex--items-c flex--justify-c"></span>
+                          <p class="advert__info-category">Dorms</p>
+                          <p class="advert__info-quantity"><?php the_field('dorms-quantity') ?></p>
+                        </li>
+                      <?php } ?>
+
+                      <?php if (trim(get_field('suites-quantity')) != "" && trim(get_field('suites-quantity')) != 0) { ?>
+                        <li class="advert__info-item flex flex--col flex--items-c">
+                            <span
+                                class="advert__icon advert__icon--big fas fa-bath flex flex--items-c flex--justify-c"></span>
+                          <p class="advert__info-category">Suítes</p>
+                          <p class="advert__info-quantity"><?php the_field('suites-quantity') ?></p>
+                        </li>
+                      <?php } ?>
+
+                      <?php if (trim(get_field('bathroom-quantity')) != "" && trim(get_field('bathroom-quantity')) != 0) { ?>
+                        <li class="advert__info-item flex flex--col flex--items-c">
+                            <span
+                                class="advert__icon advert__icon--big fas fa-shower flex flex--items-c flex--justify-c"></span>
+                          <p class="advert__info-category">Banheiros</p>
+                          <p class="advert__info-quantity"><?php the_field('bathroom-quantity') ?></p>
+                        </li>
+                      <?php } ?>
+
+                      <?php if (trim(get_field('area-quantity')) != "" && trim(get_field('area-quantity')) != 0) { ?>
+                        <li class="advert__info-item flex flex--col flex--items-c">
+                    <span
+                        class="advert__icon advert__icon--big fas fa-th-large flex flex--items-c flex--justify-c"></span>
+                          <p class="advert__info-category">Área</p>
+                          <p class="advert__info-quantity"><?php the_field('area-quantity') ?>m²</p>
+                        </li>
+                      <?php } ?>
+
+                      <?php if (trim(get_field('parking-quantity')) != "" && trim(get_field('parking-quantity')) != 0) { ?>
+                        <li class="advert__info-item flex flex--col flex--items-c">
+                            <span
+                                class="advert__icon advert__icon--big fas fa-car flex flex--items-c flex--justify-c"></span>
+                          <p class="advert__info-category">Vagas</p>
+                          <p class="advert__info-quantity"><?php the_field('parking-quantity') ?></p>
+                        </li>
+                      <?php } ?>
                   </ul>
 
                   <a href="<?php the_permalink(); ?>" class="advert__button btn btn--bold btn--full btn--small">Ver
                     mais</a>
-
                 </div>
               </div>
             </div>
