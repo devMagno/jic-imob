@@ -135,7 +135,7 @@
 
         var message = encodeURIComponent(`Olá, meu nome é *${nameValue}*, meu telefone é *${phoneValue}*.\nMensagem: ${messageValue}`)
 
-        window.open(`${baseURL}l=pt_BR&phone=<?php echo "5513991828585" //the_field('ugly-phone-number'); ?>&text=${message}`, '_blank')
+        window.open(`${baseURL}l=pt_BR&phone=<?php the_field('ugly-phone-number'); ?>&text=${message}`, '_blank')
       }
     })
   </script>

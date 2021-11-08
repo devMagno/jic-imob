@@ -659,12 +659,6 @@ function cmb2_fields_imovel()
         'desc' => 'Cidade do imóvel, por exemplo: Santos, São Vicente, Praia Grande, etc.',
     ]);
     $cmb_imovel->add_field([
-        'name' => 'Preço do imóvel (ou valor do aluguel, se for aluguel)',
-        'id' => 'price',
-        'type' => 'text',
-        'desc' => 'Preço referente ao imóvel',
-    ]);
-    $cmb_imovel->add_field([
         'name' => 'Bairro do imóvel',
         'id' => 'neighbourhood',
         'type' => 'text',
@@ -680,6 +674,18 @@ function cmb2_fields_imovel()
             'group_title' => '{#}ª imagem',
             'add_button' => 'Adicionar imagem',
             'remove_button' => 'Remover imagem',
+            'sortable' => true
+        ]
+    ]);
+    $features = $cmb_imovel->add_field([
+        'name' => 'Características',
+        'id' => 'features',
+        'type' => 'group',
+        'repeatable' => true,
+        'options' => [
+            'group_title' => '{#}ª característica',
+            'add_button' => 'Adicionar característica',
+            'remove_button' => 'Remover característica',
             'sortable' => true
         ]
     ]);
@@ -773,28 +779,35 @@ function cmb2_fields_imovel()
             'url' => false,
         ],
     ]);
+    $cmb_imovel->add_group_field($features, [
+        'name' => 'Característica',
+        'id' => 'feature',
+        'type' => 'text_medium',
+    ]);
     $cmb_imovel->add_field([
-        'name' => 'IPTU',
-        'id' => 'iptu',
+        'name' => 'Preço do imóvel (se estiver a venda)',
+        'id' => 'price',
         'type' => 'text',
         'attributes' => array(
             'type' => 'number',
             'pattern' => '\d*',
         ),
-        'sanitization_cb' => 'absint',
-        'escape_cb' => 'absint',
+    ]);
+    $cmb_imovel->add_field([
+        'name' => 'Valor do aluguel mensal do imóvel (se estiver disponível para aluguel)',
+        'id' => 'rent',
+        'type' => 'text',
+    ]);
+    $cmb_imovel->add_field([
+        'name' => 'IPTU',
+        'id' => 'iptu',
+        'type' => 'text',
         'desc' => 'Valor referente ao IPTU por mês do imóvel',
     ]);
     $cmb_imovel->add_field([
         'name' => 'Condomínio',
         'id' => 'condominium',
         'type' => 'text',
-        'attributes' => array(
-            'type' => 'number',
-            'pattern' => '\d*',
-        ),
-        'sanitization_cb' => 'absint',
-        'escape_cb' => 'absint',
         'desc' => 'Valor referente ao condomínio por mês do imóvel (se houver)',
     ]);
 }

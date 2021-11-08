@@ -38,6 +38,17 @@
     padding: 10px 8px;
     top: 16px;
     left: 20px;
+    
+    &--right {
+      left: unset;
+      right: 20px;
+      text-transform: unset;
+      background-color: $dark-color;
+      
+      + .advert__badge--right {
+        top: 58px;
+      }
+    }
   }
   
   &__img img {
@@ -58,6 +69,7 @@
     
     span {
       text-transform: lowercase;
+      
       &:last-of-type {
         display: none;
       }

@@ -1,6 +1,9 @@
 <?php
 // Template Name: Detalhes do Anúncio
 ?>
+<?php
+$contato = get_page_by_title('Contato')->ID;
+?>
 <?php get_header(); ?>
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -88,6 +91,14 @@
               <?php } ?>
           </ul>
         </div>
+        <div class="single__features">
+          <h2 class="single__features-title">Características</h2>
+          <ul class="flex row gutter flex--wrap">
+              <?php foreach (get_field('features') as $featureItem) { ?>
+                <li class="col-6"><?php echo $featureItem['feature'] ?></li>
+              <?php } ?>
+          </ul>
+        </div>
         <div class="single__details">
           <h2 class="single__details-title">Detalhes do imóvel</h2>
           <div class="single__details-text">
@@ -95,10 +106,43 @@
           </div>
         </div>
       </div>
-      <div class="single__price col-2 col-sm-12 flex--col">
-        <div class="sticky">
-          <p>Valor</p>
-          <p class="single__price-valor"><?php the_field('price') ?></p>
+      <div class="single__price col-2 col-sm-12 flex--col" data-sticky-container>
+        <div class="sticky" data-margin-top="40">
+          <div class="sticky-icon flex flex--items-c flex--justify-c">
+            <span class="fas fa-home"></span>
+          </div>
+            <?php if (trim(get_field('price')) != 0 && trim(get_field('price')) != "") { ?>
+              <div class="flex flex--items-c flex--justify-sb">
+                <span>Venda</span>
+                <span>R$ <?php echo number_format(get_field('price'), 2, ',', '.') ?></span>
+              </div>
+            <?php } ?>
+
+            <?php if (trim(get_field('rent')) != 0 && trim(get_field('rent')) != "") { ?>
+              <div class="flex flex--items-c flex--justify-sb">
+                <span>Aluguel</span>
+                <span>R$ <?php echo number_format(get_field('rent'), 2, ',', '.') ?>/mês</span>
+              </div>
+            <?php } ?>
+
+            <?php if (trim(get_field('iptu')) != "") { ?>
+              <div class="flex flex--items-c flex--justify-sb smaller">
+                <span>IPTU</span>
+                <span>R$ <?php echo number_format(get_field('iptu'), 2, ',', '.') ?>/mês</span>
+              </div>
+            <?php } ?>
+
+            <?php if (trim(get_field('condominium')) != "") { ?>
+              <div class="flex flex--items-c flex--justify-sb smaller">
+                <span>Condomínio</span>
+                <span>R$ <?php echo number_format(get_field('condominium'), 2, ',', '.') ?>/mês</span>
+              </div>
+            <?php } ?>
+
+          <button id="contact-button" class="btn btn--bold btn--radius flex flex--items-c flex--justify-c">
+            <span class="fas fa-paper-plane"></span>
+            Quero mais informações
+          </button>
         </div>
       </div>
     </section>
@@ -106,7 +150,27 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      // var stickyElement = new Sticksy('.single__price .sticky')
+      var clickEvents = ['touchstart', 'click']
+      var stickyElement = new Sticky('.single__price .sticky')
+
+      clickEvents.forEach(function (clickEvent) {
+        document.getElementById("contact-button").addEventListener(clickEvent, function () {
+          var a = navigator.userAgent || navigator.vendor || window.opera
+          var isMobile = /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0, 4))
+
+          var baseURL
+
+          if (isMobile) {
+            baseURL = "whatsapp://send?"
+          } else {
+            baseURL = "https://api.whatsapp.com/send?"
+          }
+
+          var message = encodeURIComponent('Gostaria de mais informações sobre o imóvel *<?php the_title() ?>*.')
+
+          window.open(`${baseURL}l=pt_BR&phone=<?php echo get_post_meta($contato, 'ugly-phone-number', true);  ?>&text=${message}`, '_blank')
+        })
+      })
 
       const galleryCarousel = new Swiper('.images-carousel', {
         preloadImages: false,

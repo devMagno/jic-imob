@@ -68,7 +68,6 @@
             <!-- </picture> -->
             <a href="/servicos#financeiros" class="btn btn--bold middlecontent__btn ">Consultoria</a>
           </div>
-          </img>
         </div>
       </div>
     </section>
@@ -117,6 +116,17 @@
               <div class="advert__item">
                 <div class="advert__top">
                   <div class="advert__badge"><?php echo $termsSlugCondition ?></div>
+                    <?php if (trim(get_field('rent')) != 0 && trim(get_field('rent')) != "") { ?>
+                      <div class="advert__badge advert__badge--right">
+                        R$ <?php echo number_format(get_field('rent'), 2, ',', '.') ?> / mês
+                      </div>
+                    <?php } ?>
+
+                    <?php if (trim(get_field('price')) != 0 && trim(get_field('price')) != "") { ?>
+                      <div class="advert__badge advert__badge--right">
+                        R$ <?php echo number_format(get_field('price'), 2, ',', '.') ?></div>
+                    <?php } ?>
+
                   <div class="advert__img">
                     <img
                         src="<?php echo get_field('images')[0]["inner-image"] ?>"

@@ -68,9 +68,8 @@ const clickEvents = ['click', 'touchstart']
 const mobileButton = document.querySelector('.header__mobileButton')
 
 function toggleMenu(event) {
-  if (event.type === 'touchstart') {
-    event.preventDefault()
-  }
+  event.preventDefault()
+  
   const header = document.querySelector('.header')
   header.classList.toggle('active')
   const isActive = header.classList.contains('active')
