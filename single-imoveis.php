@@ -167,8 +167,9 @@ $contato = get_page_by_title('Contato')->ID;
           }
 
           var message = encodeURIComponent('Gostaria de mais informações sobre o imóvel *<?php the_title() ?>*.')
+          var url = baseUrl + "l=pt_BR&phone=<?php echo get_post_meta($contato, 'ugly-phone-number', true);  ?>&text=" + message
 
-          window.open(`${baseURL}l=pt_BR&phone=<?php echo get_post_meta($contato, 'ugly-phone-number', true);  ?>&text=${message}`, '_blank')
+          window.open(url, '_blank')
         })
       })
 

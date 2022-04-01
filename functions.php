@@ -216,17 +216,10 @@ function cmb2_fields_about()
     ]);
 
     $cmb_about->add_field([
-        'name' => 'Texto "A empresa"',
+        'name' => 'Texto "Sobre a empresa"',
         'id' => 'empresa-texto',
         'type' => 'textarea',
-        'desc' => 'Texto da seção "A empresa"',
-    ]);
-
-    $cmb_about->add_field([
-        'name' => 'Texto "O conceito"',
-        'id' => 'conceito-texto',
-        'type' => 'textarea',
-        'desc' => 'Texto da seção "Conceito"',
+        'desc' => 'Texto da seção "Sobre a empresa"',
     ]);
 
     $cmb_about->add_field([
@@ -236,10 +229,10 @@ function cmb2_fields_about()
             'url' => false,
         ],
         'type' => 'file',
-        'desc' => 'Imagem que aparecerá ao lado das seções "A empresa" e "Conceito"'
+        'desc' => 'Imagem que aparecerá ao lado da seção "Sobre a empresa"'
     ]);
     $cmb_about->add_field([
-        'name' => 'Texto alternativo para imagem ao lado das seções "A empresa" e "Conceito"',
+        'name' => 'Texto alternativo para imagem ao lado das seções "Sobre a empresa"',
         'id' => 'foto-sobre-alt',
         'type' => 'text',
         'desc' => 'Pequeno texto descrevendo a imagem inserida acima (IDEAL PARA ACESSIBILIDADE E ENCONTRABILIDADE)'
@@ -323,48 +316,48 @@ function cmb2_fields_services()
 
 
     $cmb_services->add_field([
-        'name' => 'Texto da seção "Serviços Administrativos"',
-        'id' => 'texto-administrativo',
+        'name' => 'Texto da seção "Compra e Venda"',
+        'id' => 'texto-compra-e-venda',
         'type' => 'textarea',
         'desc' => 'Texto sobre o serviço administrativo prestado pela empresa',
     ]);
 
 
     $cmb_services->add_field([
-        'name' => 'Foto da seção "Serviço Administrativo"',
-        'id' => 'foto-administrativo',
+        'name' => 'Foto da seção "Compra e Venda"',
+        'id' => 'foto-compra-e-venda',
         'options' => [
             'url' => false,
         ],
         'type' => 'file',
-        'desc' => 'Imagem que aparecerá ao lado do texto da seção de "Serviço Administrativo"'
+        'desc' => 'Imagem que aparecerá ao lado do texto da seção de "Compra e Venda"'
     ]);
     $cmb_services->add_field([
-        'name' => 'Texto alternativo para imagem ao lado do texto da seção de "Serviço Administrativo',
-        'id' => 'foto-administrativo-alt',
+        'name' => 'Texto alternativo para imagem ao lado do texto da seção de "Compra e Venda',
+        'id' => 'foto-compra-e-venda-alt',
         'type' => 'text',
         'desc' => 'Pequeno texto descrevendo a imagem inserida acima (IDEAL PARA ACESSIBILIDADE E ENCONTRABILIDADE)'
     ]);
 
     $cmb_services->add_field([
-        'name' => 'Texto da seção "Serviços Financeiros"',
-        'id' => 'texto-financeiro',
+        'name' => 'Texto da seção "Locação"',
+        'id' => 'texto-locacao',
         'type' => 'textarea',
-        'desc' => 'Texto sobre o serviço financeiro prestado pela empresa',
+        'desc' => 'Texto sobre o serviço de locação prestado pela empresa',
     ]);
 
     $cmb_services->add_field([
-        'name' => 'Foto da seção "Serviço Financeiro"',
-        'id' => 'foto-financeiro',
+        'name' => 'Foto da seção "Locação"',
+        'id' => 'foto-locacao',
         'options' => [
             'url' => false,
         ],
         'type' => 'file',
-        'desc' => 'Imagem que aparecerá ao lado do texto da seção de "Serviço Financeiro"'
+        'desc' => 'Imagem que aparecerá ao lado do texto da seção de "Locação"'
     ]);
     $cmb_services->add_field([
-        'name' => 'Texto alternativo para imagem ao lado do texto da seção de "Serviço Financeiro"',
-        'id' => 'foto-financeiro-alt',
+        'name' => 'Texto alternativo para imagem ao lado do texto da seção de "Locação"',
+        'id' => 'foto-locacao-alt',
         'type' => 'text',
         'desc' => 'Pequeno texto descrevendo a imagem inserida acima (IDEAL PARA ACESSIBILIDADE E ENCONTRABILIDADE)'
     ]);
