@@ -53,31 +53,6 @@
       </div>
     </section>
 
-    <section class="container">
-      <h3 class="page-title">Nossa equipe</h3>
-      <div class="staff flex flex--justify-c flex--wrap row gutter">
-          <?php
-          $equipe = get_field('equipe');
-          if (isset($equipe)) {
-              foreach ($equipe as $membro) { ?>
-                <div class="staff__container col-4 col-sm-12">
-                  <div class="staff__member">
-                    <div class="staff__photo">
-                      <img
-                          src="<?php echo $membro['foto']; ?>"
-                          alt="<?php echo $membro['nome']; ?>">
-                    </div>
-                    <div class="staff__content">
-                      <p class="staff__name"><?php echo $membro['nome']; ?></p>
-                      <p class="staff__text"><?php echo $membro['descricao']; ?></p>
-                    </div>
-                  </div>
-                </div>
-              <?php }
-          } ?>
-      </div>
-    </section>
-
     <div class="cta flex flex--items-c flex--justify-c">
       <img
           src="<?php the_field('foto-cta') ?>"

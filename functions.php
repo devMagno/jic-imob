@@ -299,16 +299,16 @@ function cmb2_fields_services()
     ]);
 
     $cmb_services->add_field([
-        'name' => 'Foto da seção "Serviço Imobiliário"',
+        'name' => 'Foto da seção "Serviços Imobiliários"',
         'id' => 'foto-imobiliario',
         'options' => [
             'url' => false,
         ],
         'type' => 'file',
-        'desc' => 'Imagem que aparecerá ao lado do texto da seção de "Serviço Imobiliário"'
+        'desc' => 'Imagem que aparecerá ao lado do texto da seção de "Serviços Imobiliários"'
     ]);
     $cmb_services->add_field([
-        'name' => 'Texto alternativo para imagem ao lado do texto da seção de "Serviço Imobiliário',
+        'name' => 'Texto alternativo para imagem ao lado do texto da seção de "Serviços Imobiliários"',
         'id' => 'foto-imobiliario-alt',
         'type' => 'text',
         'desc' => 'Pequeno texto descrevendo a imagem inserida acima (IDEAL PARA ACESSIBILIDADE E ENCONTRABILIDADE)'
@@ -333,7 +333,7 @@ function cmb2_fields_services()
         'desc' => 'Imagem que aparecerá ao lado do texto da seção de "Compra e Venda"'
     ]);
     $cmb_services->add_field([
-        'name' => 'Texto alternativo para imagem ao lado do texto da seção de "Compra e Venda',
+        'name' => 'Texto alternativo para imagem ao lado do texto da seção de "Compra e Venda"',
         'id' => 'foto-compra-e-venda-alt',
         'type' => 'text',
         'desc' => 'Pequeno texto descrevendo a imagem inserida acima (IDEAL PARA ACESSIBILIDADE E ENCONTRABILIDADE)'
