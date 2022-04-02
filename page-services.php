@@ -12,33 +12,16 @@
     <section class="container content">
       <div class="flex row gutter flex--items-c flex--justify-sb flex--wrap">
         <div class="content__textual col-6 col-sm-12 flex--col">
-          <h3 class="content__title page-title">Serviços imobiliários</h3>
+          <h3 class="content__title page-title">Compra e venda</h3>
           <div class="content__text">
-              <?php echo wpautop(get_post_meta(get_the_ID(), 'texto-imobiliario', true)); ?>
+              <?php echo wpautop(get_post_meta(get_the_ID(), 'texto-compra-e-venda', true)); ?>
           </div>
           <a href="/anuncios" class="content__cta btn btn--radius">Ver anúncios</a>
         </div>
         <div class="content__visual col-5 col-sm-12">
           <img
-              src="<?php the_field('foto-imobiliario') ?>"
-              alt="<?php the_field('foto-imobiliario-alt') ?>" class="content__img1">
-        </div>
-      </div>
-    </section>
-
-    <section class="container content">
-      <div class="flex row gutter flex--items-c flex--justify-sb flex--wrap">
-        <div class="content__visual col-5 col-sm-12">
-          <img
               src="<?php the_field('foto-compra-e-venda') ?>"
               alt="<?php the_field('foto-compra-e-venda-alt') ?>" class="content__img1">
-        </div>
-        <div class="content__textual content__textual--right col-6 col-sm-12 flex flex--col flex--items-end">
-          <h3 class="content__title page-title">Compra e venda</h3>
-          <div class="content__text content__text--right">
-              <?php echo wpautop(get_post_meta(get_the_ID(), 'texto-compra-e-venda', true)); ?>
-          </div>
-          <a href="/contato" class="content__cta btn btn--radius">Entre em contato</a>
         </div>
       </div>
     </section>

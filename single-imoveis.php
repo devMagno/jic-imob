@@ -167,7 +167,7 @@ $contato = get_page_by_title('Contato')->ID;
           }
 
           var message = encodeURIComponent('Gostaria de mais informações sobre o imóvel *<?php the_title() ?>*.')
-          var url = baseUrl + "l=pt_BR&phone=<?php echo get_post_meta($contato, 'ugly-phone-number', true);  ?>&text=" + message
+          var url = baseURL + "l=pt_BR&phone=<?php echo get_post_meta($contato, 'ugly-phone-number', true);  ?>&text=" + message
 
           window.open(url, '_blank')
         })
@@ -180,7 +180,7 @@ $contato = get_page_by_title('Contato')->ID;
         loop: true,
         autoplay: {
           delay: 6500,
-          disableOnInsteraction: false,
+          disableOnInteraction: false,
         },
         pagination: {
           el: '.swiper-pagination',

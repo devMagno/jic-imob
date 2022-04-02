@@ -10,7 +10,6 @@
       <img
           src="<?php the_field('foto-banner') ?>"
           alt="" class="banner__background">
-      <h1 class="banner__text container fadeInUp" data-anime="200"><?php the_field('slogan'); ?></h1>
     </section>
 
       <?php

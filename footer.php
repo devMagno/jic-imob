@@ -47,24 +47,32 @@ $contato = get_page_by_title('Contato')->ID;
         <ul class="footer__socials flex flex--items-c flex--justify-sb">
           <li class="footer__social">
             <a rel="noopener noreferrer" target="_blank" href="<?php echo get_post_meta($contato, 'facebook', true); ?>"
-               class="footer__socialLink"><span
-                  class="fab fa-facebook-square"></span></a>
+               class="footer__socialLink">
+              <span class="fab fa-facebook-square"></span>
+              <span class="sr-only">Facebook</span>
+            </a>
           </li>
           <li class="footer__social">
             <a rel="noopener noreferrer" target="_blank"
                href="https://api.whatsapp.com/send?phone=<?php echo get_post_meta($contato, 'ugly-phone-number', true); ?>"
-               class="footer__socialLink"><span
-                  class="fab fa-whatsapp"></span></a>
+               class="footer__socialLink">
+              <span class="fab fa-whatsapp"></span>
+              <span class="sr-only">WhatsApp</span>
+            </a>
           </li>
           <li class="footer__social">
             <a rel="noopener noreferrer" target="_blank"
-               href="<?php echo get_post_meta($contato, 'instagram', true); ?>" class="footer__socialLink"><span
-                  class="fab fa-instagram"></span></a>
+               href="<?php echo get_post_meta($contato, 'instagram', true); ?>" class="footer__socialLink">
+              <span class="fab fa-instagram"></span>
+              <span class="sr-only">Instagram</span>
+            </a>
           </li>
           <li class="footer__social">
             <a rel="noopener noreferrer" target="_blank" href="<?php echo get_post_meta($contato, 'youtube', true); ?>"
-               class="footer__socialLink"><span
-                  class="fab fa-youtube"></span></a>
+               class="footer__socialLink">
+              <span class="fab fa-youtube"></span>
+              <span class="sr-only">YouTube</span>
+            </a>
           </li>
         </ul>
       </div>
@@ -109,9 +117,6 @@ $contato = get_page_by_title('Contato')->ID;
     </div>
   </div>
 </div>
-
-<!-- <script src="../js/libs.min.js"></script>
-<script src="../js/script.js"></script> -->
 
 <?php wp_footer(); ?>
 </body>

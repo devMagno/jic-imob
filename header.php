@@ -11,27 +11,43 @@
   <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/style.css">
   <script src="https://kit.fontawesome.com/77daa57238.js" crossorigin="anonymous"></script>
 
-
     <?php
     if (!is_404()) { ?>
       <title><?php bloginfo("name"); ?> - <?php the_title(""); ?></title>
       <meta name="title" content="<?php bloginfo(`name`); ?> - <?php the_title(``); ?>">
+      <meta property="og:title" content="<?php bloginfo('name'); ?> - <?php the_title(''); ?>">
+      <meta property="twitter:title" content="<?php bloginfo('name'); ?> - <?php the_title(''); ?>">
+        <?php if (get_post_type() === "imoveis") { ?>
+        <meta name="description"
+              content="<?php echo str_replace(array("\r", "\n"), '', strip_tags(get_the_content())); ?>">
+        <meta property="og:description"
+              content="<?php echo str_replace(array("\r", "\n"), '', strip_tags(get_the_content())); ?>">
+        <meta property="twitter:description"
+              content="<?php echo str_replace(array("\r", "\n"), '', strip_tags(get_the_content())); ?>">
+        <?php } else { ?>
+        <meta name="description" content="<?php the_field('page-desc'); ?>">
+        <meta property="og:description" content="<?php the_field('page-desc'); ?>">
+        <meta property="twitter:description" content="<?php the_field('page-desc'); ?>">
+        <?php } ?>
     <?php } else { ?>
       <title><?php bloginfo("name"); ?> - Página não encontrada</title>
       <meta name="title" content="<?php bloginfo(`name`); ?> - Página não encontrada">
+      <meta property="og:title" content="<?php bloginfo('name'); ?> - Página não encontrada">
+      <meta property="twitter:title" content="<?php bloginfo('name'); ?> - Página não encontrada ">
+      <meta name="description"
+            content="A JIC IMOB Consultoria Imobiliária chega ao mercado imobiliário com a proposta de inovar no atendimento, prestando assessoria imobiliária de forma ágil e eficaz. Nosso principal foco é transparência nas negociações. A empresa atua em todos os segmentos do setor imobiliário: Locação, Administração, Compra e Venda de imóveis residenciais e comerciais.">
+      <meta property="og:description"
+            content="A JIC IMOB Consultoria Imobiliária chega ao mercado imobiliário com a proposta de inovar no atendimento, prestando assessoria imobiliária de forma ágil e eficaz. Nosso principal foco é transparência nas negociações. A empresa atua em todos os segmentos do setor imobiliário: Locação, Administração, Compra e Venda de imóveis residenciais e comerciais.">
+      <meta property="twitter:description"
+            content="A JIC IMOB Consultoria Imobiliária chega ao mercado imobiliário com a proposta de inovar no atendimento, prestando assessoria imobiliária de forma ágil e eficaz. Nosso principal foco é transparência nas negociações. A empresa atua em todos os segmentos do setor imobiliário: Locação, Administração, Compra e Venda de imóveis residenciais e comerciais.">
     <?php } ?>
-  <meta name="description" content="<?php the_field('page-desc'); ?>">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="<?php bloginfo('url'); ?>">
-  <meta property="og:title" content="<?php bloginfo('name'); ?> - <?php the_title(''); ?>">
-  <meta property="og:description" content="<?php the_field('page-desc'); ?>">
   <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/img/og-image.png">
 
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="<?php bloginfo('url'); ?>">
-  <meta property="twitter:title" content="<?php bloginfo('name'); ?> - <?php the_title(''); ?>">
-  <meta property="twitter:description" content="<?php the_field('page-desc'); ?>">
   <meta property="twitter:image" content="<?php echo get_template_directory_uri(); ?>/img/og-image.png">
 
   <link rel="icon" type="image/png" sizes="32x32"
@@ -59,7 +75,8 @@
 <header class="header flex">
   <div class="header__inner container flex flex--items-c flex--justify-sb flex--wrap">
     <a class="header__logo" href="/">
-      <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-header.svg" alt="<?php bloginfo('name'); ?>">
+      <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-header.svg" alt="<?php bloginfo('name'); ?>"
+           width="133" height="73">
     </a>
     <nav class="header__nav hide-on-mobile">
         <?php

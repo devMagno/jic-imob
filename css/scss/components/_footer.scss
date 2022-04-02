@@ -76,7 +76,7 @@
   //* BOTTOM
   &__copy {
     @include type(12.8);
-    color: rgba($light-color, 0.2);
+    color: $light-color;
     text-align: right;
     line-height: 1.4;
   }

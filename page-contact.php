@@ -69,23 +69,31 @@
                 <li class="contacts__social-item">
                   <a rel="noopener noreferrer" target="_blank" href="<?php the_field('facebook'); ?>"
                      class="contacts__social-link flex flex--items-c flex--justify-c">
-                    <span class="fab fa-facebook-square contacts__social-icon"></span></a>
+                    <span class="fab fa-facebook-square contacts__social-icon"></span>
+                    <span class="sr-only">Facebook</span>
+                  </a>
                 </li>
                 <li class="contacts__social-item">
                   <a rel="noopener noreferrer" target="_blank"
                      href="https://api.whatsapp.com/send?phone=<?php the_field('ugly-phone-number'); ?>"
                      class="contacts__social-link flex flex--items-c flex--justify-c">
-                    <span class="fab fa-whatsapp contacts__social-icon"></span></a>
+                    <span class="fab fa-whatsapp contacts__social-icon"></span>
+                    <span class="sr-only">WhatsApp</span>
+                  </a>
                 </li>
                 <li class="contacts__social-item">
                   <a rel="noopener noreferrer" target="_blank" href="<?php the_field('instagram'); ?>"
                      class="contacts__social-link flex flex--items-c flex--justify-c">
-                    <span class="fab fa-instagram contacts__social-icon"></span></a>
+                    <span class="fab fa-instagram contacts__social-icon"></span>
+                    <span class="sr-only">Instagram</span>
+                  </a>
                 </li>
                 <li class="contacts__social-item">
                   <a rel="noopener noreferrer" target="_blank" href="<?php the_field('youtube'); ?>"
                      class="contacts__social-link flex flex--items-c flex--justify-c">
-                    <span class="fab fa-youtube contacts__social-icon"></span></a>
+                    <span class="fab fa-youtube contacts__social-icon"></span>
+                    <span class="sr-only">YouTube</span>
+                  </a>
                 </li>
               </ul>
             </div>

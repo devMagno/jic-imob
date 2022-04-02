@@ -866,34 +866,6 @@ body {
 .pswp__ui {
   height: 100%; }
 
-.fadeInDown {
-  -webkit-transform: translate3d(0, -20px, 0);
-  transform: translate3d(0, -20px, 0); }
-
-.fadeInUp {
-  -webkit-transform: translate3d(0, 20px, 0);
-  transform: translate3d(0, 20px, 0); }
-
-.fadeInRight {
-  -webkit-transform: translate3d(20px, 0, 0);
-  transform: translate3d(20px, 0, 0); }
-
-.fadeInLeft {
-  -webkit-transform: translate3d(-20px, 0, 0);
-  transform: translate3d(-20px, 0, 0); }
-
-[data-anime] {
-  opacity: 0; }
-
-.anime {
-  opacity: 1;
-  -webkit-transform: none;
-  transform: none;
-  -webkit-transition: opacity 0.8s, -webkit-transform 0.8s;
-  transition: opacity 0.8s, -webkit-transform 0.8s;
-  transition: transform 0.8s, opacity 0.8s;
-  transition: transform 0.8s, opacity 0.8s, -webkit-transform 0.8s; }
-
 .sr-only {
   position: absolute;
   width: 1px;
@@ -2123,7 +2095,7 @@ body {
     font-size: 0.8em;
     font-weight: 400;
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
-    color: rgba(255, 255, 255, 0.2);
+    color: #fff;
     text-align: right;
     line-height: 1.4; }
   @media only screen and (max-width: 767px) {

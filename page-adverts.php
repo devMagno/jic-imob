@@ -29,7 +29,10 @@
               $terms = get_terms('categoria_imoveis');
               foreach ($terms as $term) { ?>
                 <button class="flex flex--items-c"
-                        data-filter=".<?php echo $term->slug; ?>"><?php echo $term->name; ?></button>
+                        data-url="categoria=<?php echo $term->slug; ?>"
+                        data-filter=".<?php echo $term->slug; ?>">
+                    <?php echo $term->name; ?>
+                </button>
                   <?php
               }
               ?>
@@ -39,7 +42,10 @@
               $terms2 = get_terms('condicao_imoveis');
               foreach ($terms2 as $term) { ?>
                 <button class="flex flex--items-c"
-                        data-filter=".<?php echo $term->slug; ?>"><?php echo $term->name; ?></button>
+                        data-url="condicao=<?php echo $term->slug; ?>"
+                        data-filter=".<?php echo $term->slug; ?>">
+                    <?php echo $term->name; ?>
+                </button>
                   <?php
               }
               ?>
@@ -49,7 +55,10 @@
               $terms3 = get_terms('tipo_imoveis');
               foreach ($terms3 as $term) { ?>
                 <button class="flex flex--items-c"
-                        data-filter=".<?php echo $term->slug; ?>"><?php echo $term->name; ?></button>
+                        data-url="tipo=<?php echo $term->slug; ?>"
+                        data-filter=".<?php echo $term->slug; ?>">
+                    <?php echo $term->name; ?>
+                </button>
                   <?php
               }
               ?>
