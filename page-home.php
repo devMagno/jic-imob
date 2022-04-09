@@ -156,7 +156,6 @@
             </div>
           <?php endwhile; else: endif; ?>
       </div>
-      <a href="/anuncios" class="adverts__cta btn btn--radius btn--full">Ver todos os anúncios</a>
     </section>
       <?php wp_reset_postdata(); ?>
 
