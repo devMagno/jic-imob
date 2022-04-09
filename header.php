@@ -75,8 +75,7 @@
 <header class="header flex">
   <div class="header__inner container flex flex--items-c flex--justify-sb flex--wrap">
     <a class="header__logo" href="/">
-      <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-header.svg" alt="<?php bloginfo('name'); ?>"
-           width="133" height="73">
+      <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-header.svg" alt="<?php bloginfo('name'); ?>">
     </a>
     <nav class="header__nav hide-on-mobile">
         <?php

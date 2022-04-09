@@ -91,20 +91,26 @@ $contato = get_page_by_title('Contato')->ID;
               <?php } ?>
           </ul>
         </div>
-        <div class="single__features">
-          <h2 class="single__features-title">Características</h2>
-          <ul class="flex row gutter flex--wrap">
-              <?php foreach (get_field('features') as $featureItem) { ?>
-                <li class="col-6"><?php echo $featureItem['feature'] ?></li>
-              <?php } ?>
-          </ul>
-        </div>
-        <div class="single__details">
-          <h2 class="single__details-title">Detalhes do imóvel</h2>
-          <div class="single__details-text">
-              <?php echo wpautop(the_content()); ?>
-          </div>
-        </div>
+          <?php
+          if (is_array(get_field('features') && count(get_field('features')))) { ?>
+            <div class="single__features">
+              <h2 class="single__features-title">Características</h2>
+              <ul class="flex row gutter flex--wrap">
+                  <?php foreach (get_field('features') as $featureItem) { ?>
+                    <li class="col-6"><?php echo $featureItem['feature'] ?></li>
+                  <?php } ?>
+              </ul>
+            </div>
+          <?php } ?>
+
+          <?php if (the_content() != null && trim(the_content()) != "") { ?>
+            <div class="single__details">
+              <h2 class="single__details-title">Detalhes do imóvel</h2>
+              <div class="single__details-text">
+                  <?php echo wpautop(the_content()); ?>
+              </div>
+            </div>
+          <?php } ?>
       </div>
       <div class="single__price col-2 col-sm-12 flex--col" data-sticky-container>
         <div class="sticky" data-margin-top="40">

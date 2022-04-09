@@ -3,13 +3,62 @@
 ?>
 <?php get_header(); ?>
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-
+  
   <main class="page-content page-content--index">
-
-    <section class="banner flex flex--items-c flex--justify-c">
-      <img
-          src="<?php the_field('foto-banner') ?>"
-          alt="" class="banner__background">
+    
+    <section class="banner flex flex--items-c flex--justify-c" style="background-image: url('<?php the_field('foto-banner') ?>');">
+      <div class="banner__search">
+        <form id="home-search">
+          <div class="flex flex--items-c">
+            <div>
+              <label for="categoria"><span class="sr-only">Finalidade</span></label>
+              <div class="custom-select" style="min-width:200px;">
+                <select name="categoria" id="categoria">
+                  <option value="0">Finalidade</option>
+                    <?php
+                    $terms = get_terms('categoria_imoveis');
+                    foreach ($terms as $term) { ?>
+                      <option value="categoria=<?php echo $term->slug; ?>">
+                          <?php echo $term->name; ?>
+                      </option>
+                    <?php } ?>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label for="condicao"><span class="sr-only">Condição</span></label>
+              <div class="custom-select" style="min-width:200px;">
+                <select name="condicao" id="condicao">
+                  <option value="0">Condição</option>
+                    <?php
+                    $terms = get_terms('condicao_imoveis');
+                    foreach ($terms as $term) { ?>
+                      <option value="condicao=<?php echo $term->slug; ?>">
+                          <?php echo $term->name; ?>
+                      </option>
+                    <?php } ?>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label for="tipo"><span class="sr-only">Tipo de imóvel</span></label>
+              <div class="custom-select" style="min-width:200px;">
+                <select name="tipo" id="tipo">
+                  <option value="0">Tipo de imóvel</option>
+                    <?php
+                    $terms = get_terms('tipo_imoveis');
+                    foreach ($terms as $term) { ?>
+                      <option value="tipo=<?php echo $term->slug; ?>">
+                          <?php echo $term->name; ?>
+                      </option>
+                    <?php } ?>
+                </select>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn--bold" type="submit">Buscar</button>
+        </form>
+      </div>
     </section>
 
       <?php
@@ -30,10 +79,10 @@
     <section class="container advert" style="margin-top: 70px; margin-bottom: 80px">
       <div class="middlecontent">
         <div class="innerTitle">
-          <h2 class="innerTitle__title innerTitle__title--middlecontent">Anúncios em Destaque</h2>
+          <h2 class="innerTitle__title innerTitle__title--middlecontent">Destaques</h2>
         </div>
       </div>
-
+      
       <div class="advert__list flex row gutter flex--wrap">
           <?php if ($the_query->have_posts()) : while ($the_query->have_posts()) : $the_query->the_post();
               $termsArrayCategory = get_the_terms($post->ID, 'categoria_imoveis');
@@ -78,13 +127,13 @@
                       <div class="advert__badge advert__badge--right">
                         R$ <?php echo number_format(get_field('price'), 2, ',', '.') ?></div>
                     <?php } ?>
-
+                  
                   <div class="advert__img">
                     <img
                         src="<?php echo get_field('images')[0]["inner-image"] ?>"
                         alt="<?php the_title(); ?>">
                   </div>
-
+                  
                   <div class="advert__badge advert__badge--featured" title="Imóvel destaque">
                     <span class="fas fa-star"></span>
                   </div>
@@ -96,11 +145,11 @@
                     <p class="advert__city-container">em <span class="advert__city"><?php the_field('city') ?></span>
                     </p>
                   </div>
-
+                  
                   <p class="advert__neighbourhood-container"><span class="fas fa-map-marker-alt advert__icon"></span>
                     <span
                         class="advert__neighbourhood"><?php the_field('neighbourhood') ?></span></p>
-
+                  
                   <ul class="advert__info flex flex--justify-sb flex--wrap">
                       <?php if (trim(get_field('dorms-quantity')) != "" && trim(get_field('dorms-quantity')) != 0) { ?>
                         <li class="advert__info-item flex flex--col flex--items-c">
@@ -147,7 +196,7 @@
                         </li>
                       <?php } ?>
                   </ul>
-
+                  
                   <a href="<?php the_permalink(); ?>" class="advert__button btn btn--bold btn--full btn--small">
                     Ver mais
                   </a>
@@ -177,7 +226,7 @@
           </p>
         </div>
       </div>
-
+      
       <div class="advert__list flex row gutter flex--wrap">
           <?php if ($the_query->have_posts()) : while ($the_query->have_posts()) : $the_query->the_post();
               $termsArrayCategory = get_the_terms($post->ID, 'categoria_imoveis');
@@ -222,7 +271,7 @@
                       <div class="advert__badge advert__badge--right">
                         R$ <?php echo number_format(get_field('price'), 2, ',', '.') ?></div>
                     <?php } ?>
-
+                  
                   <div class="advert__img">
                     <img
                         src="<?php echo get_field('images')[0]["inner-image"] ?>"
@@ -242,11 +291,11 @@
                     <p class="advert__city-container">em <span class="advert__city"><?php the_field('city') ?></span>
                     </p>
                   </div>
-
+                  
                   <p class="advert__neighbourhood-container"><span class="fas fa-map-marker-alt advert__icon"></span>
                     <span
                         class="advert__neighbourhood"><?php the_field('neighbourhood') ?></span></p>
-
+                  
                   <ul class="advert__info flex flex--justify-sb flex--wrap">
                       <?php if (trim(get_field('dorms-quantity')) != "" && trim(get_field('dorms-quantity')) != 0) { ?>
                         <li class="advert__info-item flex flex--col flex--items-c">
@@ -293,7 +342,7 @@
                         </li>
                       <?php } ?>
                   </ul>
-
+                  
                   <a href="<?php the_permalink(); ?>" class="advert__button btn btn--bold btn--full btn--small">
                     Ver mais
                   </a>
@@ -305,7 +354,7 @@
       <a href="/anuncios" class="adverts__cta btn btn--radius btn--full">Ver todos os anúncios</a>
     </section>
       <?php wp_reset_postdata(); ?>
-
+  
   </main>
 
 <?php endwhile; else: endif; ?>

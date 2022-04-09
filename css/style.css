@@ -866,6 +866,67 @@ body {
 .pswp__ui {
   height: 100%; }
 
+/* The container must be positioned relative: */
+.custom-select {
+  position: relative;
+  color: #212121;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif; }
+
+.custom-select select {
+  display: none;
+  /*hide original SELECT element: */ }
+
+.select-selected {
+  background-color: #fff; }
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 9px;
+  right: 10px;
+  border: solid #f26226;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 4px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg); }
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+  top: 13px;
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg); }
+
+/* style the items (options), including the selected item: */
+.select-items div, .select-selected {
+  color: #212121;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer; }
+
+/* Style items (options): */
+.select-items {
+  position: absolute;
+  background-color: #fff;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99; }
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none; }
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1); }
+
+@media only screen and (max-width: 767px) {
+  .select-items div {
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.1); } }
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -1649,42 +1710,62 @@ body {
 
 .banner {
   height: 567px;
-  position: relative; }
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat; }
   @media only screen and (max-width: 767px) {
     .banner {
       height: 430px; } }
-  .banner__background {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    -o-object-fit: cover;
-    object-fit: cover;
-    -webkit-filter: brightness(40%);
-    filter: brightness(40%); }
-  .banner__text {
-    color: white;
-    position: relative;
-    font-size: 2.44125em;
-    font-weight: 700;
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
-    line-height: 1.17;
-    max-width: 750px;
-    text-align: center; }
-    .banner__text::after {
-      content: '';
-      display: block;
-      width: 70%;
-      margin: 13px auto 0;
-      height: 3px;
-      background-color: white; }
+  .banner__search {
+    max-width: 100%; }
+    .banner__search form {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-align: end;
+      -webkit-align-items: flex-end;
+      align-items: flex-end;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      max-width: 100%; }
+      .banner__search form > div {
+        padding: 10px 20px;
+        background-color: #fff; }
+        .banner__search form > div > div {
+          padding: 10px; }
+      .banner__search form > button {
+        font-size: 1.375em;
+        padding-left: 26px;
+        padding-right: 26px; }
     @media only screen and (max-width: 767px) {
-      .banner__text {
-        font-size: 24px;
-        max-width: 490px; }
-        .banner__text::after {
-          width: 40%; } }
+      .banner__search {
+        width: 100%; }
+        .banner__search form {
+          margin: 0 auto;
+          padding: 0 20px;
+          max-width: 500px;
+          -webkit-box-align: center;
+          -webkit-align-items: center;
+          align-items: center; }
+          .banner__search form > div {
+            width: 100%;
+            padding-bottom: 30px;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+            flex-direction: column; }
+            .banner__search form > div > div {
+              width: 100%;
+              padding-left: 0;
+              padding-right: 0; }
+              .banner__search form > div > div .custom-select {
+                width: 100%; }
+          .banner__search form button {
+            width: 100%;
+            margin-top: 10px;
+            font-size: 1em; } }
 
 .advert__list {
   margin-top: 50px; }
