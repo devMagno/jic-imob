@@ -85,6 +85,14 @@
                 foreach ($termsArrayType as $term) {
                     $termsSlugType .= $term->slug . ' ';
                 }
+
+                $exhibitionArray = get_the_terms($post->ID, 'exibicao');
+                $exhibition = "";
+                if ($exhibitionArray) {
+                    foreach ($exhibitionArray as $item) {
+                        $exhibition = $item->slug;
+                    }
+                }
                 ?>
               <div
                   class="grid-item col-5 <?php echo $termsSlugCategory; ?> <?php echo $termsSlugCondition ?> <?php echo $termsSlugType ?>">
@@ -108,6 +116,12 @@
                           src="<?php echo get_field('images')[0]["inner-image"] ?>"
                           alt="<?php the_title(); ?>">
                     </div>
+
+                      <?php if ($exhibition == "destaque") { ?>
+                        <div class="advert__badge advert__badge--featured" title="Imóvel destaque">
+                          <span class="fas fa-star"></span>
+                        </div>
+                      <?php } ?>
                   </div>
                   <div class="advert__bottom flex flex--col flex--justify-sb">
                     <div class="advert__location">

@@ -49,6 +49,19 @@
         top: 58px;
       }
     }
+    
+    &--featured {
+      padding: 6px;
+      font-size: 0.8em;
+      color: $dark-color;
+      border-radius: 50%;
+      background-color: $light-color;
+      
+      top: unset;
+      left: unset;
+      right: 23px;
+      bottom: 16px;
+    }
   }
   
   &__img img {

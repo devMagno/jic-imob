@@ -449,7 +449,7 @@ function custom_post_type_imoveis()
         'singular_name' => __('Tipo'),
         'search_items' => __('Buscar'),
         'popular_items' => __('Mais utilizadas'),
-        'all_items' => __('Todas os tipos'),
+        'all_items' => __('Todos os tipos'),
         'parent_item' => null,
         'parent_item_colon' => null,
         'edit_item' => __('Editar tipos'),
@@ -466,6 +466,28 @@ function custom_post_type_imoveis()
             'rewrite' => array('slug' => 'cat'))
     );
 
+    $featuredLabels = array(
+        'name' => __('Exibição'),
+        'singular_name' => __('Exibição'),
+        'search_items' => __('Buscar'),
+        'popular_items' => __('Mais utilizadas'),
+        'all_items' => __('Todas as exibições'),
+        'parent_item' => null,
+        'parent_item_colon' => null,
+        'edit_item' => __('Editar exibições'),
+        'update_item' => __('Atualizar'),
+        'add_new_item' => __('Adicionar nova exibição'),
+        'new_item_name' => __('Nova exibição')
+    );
+    register_taxonomy('exibicao', array('imoveis'), array(
+            'hierarchical' => true,
+            'labels' => $featuredLabels,
+            'singular_label' => 'exibicao_imovel',
+            'all_items' => 'Condições',
+            'query_var' => true,
+            'rewrite' => array('slug' => 'cat'))
+    );
+
     flush_rewrite_rules();
 }
 
@@ -478,6 +500,19 @@ function cmb2_fields_imovel()
         'title' => 'Imóveis',
         'object_types' => ['imoveis'],
     ]);
+
+    $cmb_imovel->add_field(array(
+        'name' => 'Tipo de exibição',
+        'id' => 'exhibition-type',
+        'taxonomy' => 'exibicao',
+        'type' => 'taxonomy_radio_inline',
+        'remove_default' => true,
+        'show_option_none' => false,
+        'text' => array(
+            'no_terms_text' => 'Nenhuma exibição foi cadastrado.'
+        ),
+        'desc' => 'A exibição "destaque" priorizará o imóvel nas listagens e exibirá um selo de destaque'
+    ));
 
     $cmb_imovel->add_field(array(
         'name' => 'Tipo do Anúncio',

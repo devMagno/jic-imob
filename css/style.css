@@ -1729,6 +1729,16 @@ body {
     background-color: #212121; }
     .advert__badge--right + .advert__badge--right {
       top: 58px; }
+  .advert__badge--featured {
+    padding: 6px;
+    font-size: 0.8em;
+    color: #212121;
+    border-radius: 50%;
+    background-color: #fff;
+    top: unset;
+    left: unset;
+    right: 23px;
+    bottom: 16px; }
 
 .advert__img img {
   -o-object-fit: cover;
