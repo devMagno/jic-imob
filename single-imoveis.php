@@ -92,7 +92,7 @@ $contato = get_page_by_title('Contato')->ID;
           </ul>
         </div>
           <?php
-          if (is_array(get_field('features') && count(get_field('features')))) { ?>
+          if (is_array(get_field('features')) && count(get_field('features')) >= 1) { ?>
             <div class="single__features">
               <h2 class="single__features-title">Características</h2>
               <ul class="flex row gutter flex--wrap">
