@@ -7,9 +7,7 @@
 ## 📖 Sobre
 
 Site institucional desenvolvido para a imobiliária JIC Imob, com o objetivo de divulgar os imóveis da empresa e fornecer
-um meio de contato aos clientes. Você pode acessar o site clicando [aqui](https://jicimob.com.br/) 
-
----
+um meio de contato aos clientes. Você pode acessar o site clicando [aqui](https://jicimob.com.br/)
 
 ## 🚀 Tecnologias e ferramentas utilizadas
 
@@ -18,8 +16,6 @@ um meio de contato aos clientes. Você pode acessar o site clicando [aqui](https
 - **MySQL**
 - **Sass**
 - **Gulp**
-
----
 
 ## 🧰 Dependências
 
